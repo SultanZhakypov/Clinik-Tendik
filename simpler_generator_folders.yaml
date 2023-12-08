@@ -1,0 +1,97 @@
+
+# **************************************************************************
+# * ArchitectureGenerator - Simpler FLutter Generator -
+# **************************************************************************
+
+#!/bin/bash
+# ----M.V.P-------------------------------------------------------> start
+generate:
+# ---Data------------------------------------------------------
+  - category: data
+    contents:
+      - folder: models
+        contents:
+          - file: NAME_model.dart
+            code: |
+              import 'package:freezed_annotation/freezed_annotation.dart';
+
+              part 'LOWER_CASE_model.freezed.dart';
+              part 'LOWER_CASE_model.g.dart';
+
+              @freezed
+              class NAMEModel with _$NAMEModel {
+                const factory NAMEModel({
+                  String? status,
+                  String? data,
+                  String? message,
+                  bool? blocked,
+                  bool? popup,
+                }) = _NAMEModel;
+
+                factory NAMEModel.fromJson(Map<String, dynamic> json) =>
+                    _$NAMEModelFromJson(json);
+              }
+      - folder: repository
+        contents:
+          - file: NAME_repository.dart
+            code: |
+              import 'package:injectable/injectable.dart';
+              import 'package:megapay/core/api/dio_generator.dart';
+
+              abstract class NAMERepository {
+                Future<String> exampleFuncRepo();
+              }
+
+              @Singleton(as: NAMERepository)
+              class NAMERepositoryImpl implements NAMERepository {
+                NAMERepositoryImpl();
+                
+                final String _getList = ' API ';
+
+                @override
+                Future<String> exampleFuncRepo() async {
+                  // final response = await _dioGenerator.dio.get(_getList);
+                  // return NAMEModel.fromJson(response.data).data;
+                  return ''
+                }
+              }
+
+# ---Domain----------------------------------------------------          
+  - category: domain
+    contents:
+      - file: NAME_Interactor.dart
+        code: | 
+          import 'package:injectable/injectable.dart';
+
+          abstract class NAMEInteractor {
+            Future<void> exampleFunc();
+          }
+
+          @Singleton(as: NAMEInteractor)
+          class NAMEInteractorImpl implements NAMEInteractor {
+            NAMEInteractorImpl(this._repository);
+            final NAMERepository _repository;
+
+            @override
+            Future<void> exampleFunc() async {
+              try {
+                await _repository.exampleFuncRepo();
+              } catch (e) {
+                rethrow;
+              }
+            }
+          }
+# ---Presentation----------------------------------------------
+  - category: presentation
+    contents:
+      - folder: widgets
+      - folder: bloc
+        contents:
+          - file: NAME_bloc.dart
+          - file: NAME_event.dart
+          - file: NAME_state.dart
+      - folder: pages
+        contents:
+          - file: NAME_page.dart
+# ------------------------------------------------------------- end
+
