@@ -1,4 +1,4 @@
-import 'package:clinic_tendik/config/injectable/injectable.config.dart';
+import 'package:clinic_tendik/core/config/injectable/injectable.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
