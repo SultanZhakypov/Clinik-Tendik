@@ -1,3 +1,4 @@
+import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/calendar/custom_calendar.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctor_time_response/doctor_time_response.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
@@ -147,20 +148,15 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
               ],
             ),
           ),
-          Padding(
+          AppButton(
             padding: const EdgeInsets.symmetric(vertical: 32),
-            child: SizedBox(
-              height: 56,
-              child: ElevatedButton(
-                onPressed: _selectedTime == null
-                    ? null
-                    : () => context
-                        .read<OnlineDoctorBloc>()
-                        .add(GetPatientTalon(registrationDate: _selectedTime)),
-                child: const Center(
-                  child: Text('Подтвердить'),
-                ),
-              ),
+            onPressed: _selectedTime == null
+                ? null
+                : () => context
+                    .read<OnlineDoctorBloc>()
+                    .add(GetPatientTalon(registrationDate: _selectedTime)),
+            child: const Center(
+              child: Text('Подтвердить'),
             ),
           ),
         ],

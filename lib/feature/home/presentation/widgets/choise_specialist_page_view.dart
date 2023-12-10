@@ -1,3 +1,4 @@
+import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/text_fields/custom_textfield.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctor_list_response/doctor_list_response.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
@@ -92,24 +93,19 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
               );
             },
           ),
-          Padding(
+          AppButton(
             padding: const EdgeInsets.only(bottom: 32, top: 16),
-            child: SizedBox(
-              height: 56,
-              child: ElevatedButton(
-                onPressed: _isSelectedIndex == -1
-                    ? null
-                    : () {
-                        context.read<OnlineDoctorBloc>().add(GetDoctorsTime(
-                              date: DateTime.now(),
-                              index: _isSelectedIndex,
-                              nextPage: true,
-                            ));
-                      },
-                child: const Center(
-                  child: Text('Далее'),
-                ),
-              ),
+            onPressed: _isSelectedIndex == -1
+                ? null
+                : () {
+                    context.read<OnlineDoctorBloc>().add(GetDoctorsTime(
+                          date: DateTime.now(),
+                          index: _isSelectedIndex,
+                          nextPage: true,
+                        ));
+                  },
+            child: const Center(
+              child: Text('Далее'),
             ),
           ),
         ],

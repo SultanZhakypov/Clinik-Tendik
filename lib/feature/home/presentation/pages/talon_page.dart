@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/loading/loading_overlay.dart';
 import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
 import 'package:clinic_tendik/feature/home/data/models/patient_registration_response/patient_registration_response.dart';
@@ -149,28 +150,23 @@ class TalonPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
+                AppButton(
                   padding: const EdgeInsets.all(16),
-                  child: SizedBox(
-                    height: 56,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (_) => const _Dialog(),
-                        ).then((value) {
-                          if (value) {
-                            context
-                                .read<OnlineDoctorBloc>()
-                                .add(DeleteTalon(id: data?.id));
-                          }
-                        });
-                      },
-                      child: const Center(
-                        child: Text('Отменить запись'),
-                      ),
-                    ),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (_) => const _Dialog(),
+                    ).then((value) {
+                      if (value) {
+                        context
+                            .read<OnlineDoctorBloc>()
+                            .add(DeleteTalon(id: data?.id));
+                      }
+                    });
+                  },
+                  child: const Center(
+                    child: Text('Отменить запись'),
                   ),
                 ),
               ],
@@ -198,18 +194,13 @@ class _Dialog extends StatelessWidget {
           children: [
             const Text('Вы уверены, что хотите отменить запись?',
                 style: TextStyle(fontSize: 18)),
-            Padding(
+            AppButton(
               padding: const EdgeInsets.only(top: 32, bottom: 16),
-              child: SizedBox(
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.router.pop(true);
-                  },
-                  child: const Center(
-                    child: Text('Продолжить'),
-                  ),
-                ),
+              onPressed: () {
+                context.router.pop(true);
+              },
+              child: const Center(
+                child: Text('Продолжить'),
               ),
             ),
             InkWell(
