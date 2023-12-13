@@ -24,7 +24,7 @@ class _TimeTile extends StatelessWidget {
               decoration: BoxDecoration(
                 color: color,
                 border: border,
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: kCircleBorderRadius,
               ),
             ),
           ),

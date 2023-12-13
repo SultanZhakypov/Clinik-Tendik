@@ -59,17 +59,16 @@ class _AuthPageState extends State<AuthPage> {
                       TalonesAndRegisterPageRoute(inn: _innController.text),
                     );
                   },
-                  child: const Center(child: Text('Войти')),
+                  child: const Text('Войти'),
                 ),
-                Padding(
+                AppButton(
+                  buttonstyle: BUTTONSTYLE.TERTIARY,
                   padding: const EdgeInsets.only(top: 16, bottom: 32),
-                  child: InkWell(
-                    onTap: () {
-                      context.router.pushAndPopUntil(const RegisterPageRoute(),
-                          predicate: (_) => false);
-                    },
-                    child: const Text('Зарегистрироваться'),
-                  ),
+                  onPressed: () {
+                    context.router.pushAndPopUntil(const RegisterPageRoute(),
+                        predicate: (_) => false);
+                  },
+                  child: const Text('Зарегистрироваться'),
                 ),
               ],
             ),

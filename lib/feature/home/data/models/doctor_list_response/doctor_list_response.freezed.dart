@@ -500,6 +500,7 @@ mixin _$SpecialistResult {
   int? get typeDoctor => throw _privateConstructorUsedError;
   String? get etaj => throw _privateConstructorUsedError;
   String? get numberCabinet => throw _privateConstructorUsedError;
+  String? get imagePath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -523,7 +524,8 @@ abstract class $SpecialistResultCopyWith<$Res> {
       String? dictDoljnostName,
       int? typeDoctor,
       String? etaj,
-      String? numberCabinet});
+      String? numberCabinet,
+      String? imagePath});
 }
 
 /// @nodoc
@@ -549,6 +551,7 @@ class _$SpecialistResultCopyWithImpl<$Res, $Val extends SpecialistResult>
     Object? typeDoctor = freezed,
     Object? etaj = freezed,
     Object? numberCabinet = freezed,
+    Object? imagePath = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -591,6 +594,10 @@ class _$SpecialistResultCopyWithImpl<$Res, $Val extends SpecialistResult>
           ? _value.numberCabinet
           : numberCabinet // ignore: cast_nullable_to_non_nullable
               as String?,
+      imagePath: freezed == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -613,7 +620,8 @@ abstract class _$$SpecialistResultImplCopyWith<$Res>
       String? dictDoljnostName,
       int? typeDoctor,
       String? etaj,
-      String? numberCabinet});
+      String? numberCabinet,
+      String? imagePath});
 }
 
 /// @nodoc
@@ -637,6 +645,7 @@ class __$$SpecialistResultImplCopyWithImpl<$Res>
     Object? typeDoctor = freezed,
     Object? etaj = freezed,
     Object? numberCabinet = freezed,
+    Object? imagePath = freezed,
   }) {
     return _then(_$SpecialistResultImpl(
       id: freezed == id
@@ -679,6 +688,10 @@ class __$$SpecialistResultImplCopyWithImpl<$Res>
           ? _value.numberCabinet
           : numberCabinet // ignore: cast_nullable_to_non_nullable
               as String?,
+      imagePath: freezed == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -696,7 +709,8 @@ class _$SpecialistResultImpl implements _SpecialistResult {
       this.dictDoljnostName,
       this.typeDoctor,
       this.etaj,
-      this.numberCabinet});
+      this.numberCabinet,
+      this.imagePath});
 
   factory _$SpecialistResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$SpecialistResultImplFromJson(json);
@@ -722,10 +736,12 @@ class _$SpecialistResultImpl implements _SpecialistResult {
   final String? etaj;
   @override
   final String? numberCabinet;
+  @override
+  final String? imagePath;
 
   @override
   String toString() {
-    return 'SpecialistResult(id: $id, applicationUserId: $applicationUserId, applicationUserFio: $applicationUserFio, organisationId: $organisationId, organisationName: $organisationName, dictDoljnostId: $dictDoljnostId, dictDoljnostName: $dictDoljnostName, typeDoctor: $typeDoctor, etaj: $etaj, numberCabinet: $numberCabinet)';
+    return 'SpecialistResult(id: $id, applicationUserId: $applicationUserId, applicationUserFio: $applicationUserFio, organisationId: $organisationId, organisationName: $organisationName, dictDoljnostId: $dictDoljnostId, dictDoljnostName: $dictDoljnostName, typeDoctor: $typeDoctor, etaj: $etaj, numberCabinet: $numberCabinet, imagePath: $imagePath)';
   }
 
   @override
@@ -750,7 +766,9 @@ class _$SpecialistResultImpl implements _SpecialistResult {
                 other.typeDoctor == typeDoctor) &&
             (identical(other.etaj, etaj) || other.etaj == etaj) &&
             (identical(other.numberCabinet, numberCabinet) ||
-                other.numberCabinet == numberCabinet));
+                other.numberCabinet == numberCabinet) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath));
   }
 
   @JsonKey(ignore: true)
@@ -766,7 +784,8 @@ class _$SpecialistResultImpl implements _SpecialistResult {
       dictDoljnostName,
       typeDoctor,
       etaj,
-      numberCabinet);
+      numberCabinet,
+      imagePath);
 
   @JsonKey(ignore: true)
   @override
@@ -794,7 +813,8 @@ abstract class _SpecialistResult implements SpecialistResult {
       final String? dictDoljnostName,
       final int? typeDoctor,
       final String? etaj,
-      final String? numberCabinet}) = _$SpecialistResultImpl;
+      final String? numberCabinet,
+      final String? imagePath}) = _$SpecialistResultImpl;
 
   factory _SpecialistResult.fromJson(Map<String, dynamic> json) =
       _$SpecialistResultImpl.fromJson;
@@ -820,6 +840,8 @@ abstract class _SpecialistResult implements SpecialistResult {
   String? get etaj;
   @override
   String? get numberCabinet;
+  @override
+  String? get imagePath;
   @override
   @JsonKey(ignore: true)
   _$$SpecialistResultImplCopyWith<_$SpecialistResultImpl> get copyWith =>

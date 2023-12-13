@@ -62,6 +62,7 @@ _$SpecialistResultImpl _$$SpecialistResultImplFromJson(
       typeDoctor: json['typeDoctor'] as int?,
       etaj: json['etaj'] as String?,
       numberCabinet: json['numberCabinet'] as String?,
+      imagePath: json['imagePath'] as String?,
     );
 
 Map<String, dynamic> _$$SpecialistResultImplToJson(
@@ -77,4 +78,5 @@ Map<String, dynamic> _$$SpecialistResultImplToJson(
       'typeDoctor': instance.typeDoctor,
       'etaj': instance.etaj,
       'numberCabinet': instance.numberCabinet,
+      'imagePath': instance.imagePath,
     };

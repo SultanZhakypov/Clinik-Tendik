@@ -1,5 +1,6 @@
 import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/calendar/custom_calendar.dart';
+import 'package:clinic_tendik/core/constants/app_radius.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctor_time_response/doctor_time_response.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
@@ -68,9 +69,9 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
           Container(
             padding: const EdgeInsets.all(16),
             margin: const EdgeInsets.only(top: 16),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.white,
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: kContainerBorderRadius,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,9 +156,7 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
                 : () => context
                     .read<OnlineDoctorBloc>()
                     .add(GetPatientTalon(registrationDate: _selectedTime)),
-            child: const Center(
-              child: Text('Подтвердить'),
-            ),
+            child: const Text('Подтвердить'),
           ),
         ],
       ),

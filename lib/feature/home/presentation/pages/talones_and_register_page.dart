@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:clinic_tendik/core/components/appbar/app_scaffold.dart';
 import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/loading/loading_overlay.dart';
 import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
+import 'package:clinic_tendik/core/constants/app_radius.dart';
+import 'package:clinic_tendik/core/constants/images.dart';
 import 'package:clinic_tendik/feature/home/data/models/patient_info_model/patient_info_model.dart';
 import 'package:clinic_tendik/feature/home/data/models/patient_registration_response/patient_registration_response.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
@@ -60,11 +63,7 @@ class _TalonesAndRegisterPageState extends State<TalonesAndRegisterPage> {
           });
         }
       },
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text('Онлайн запись к врачу'),
-        ),
+      child: AppScaffold(
         body: RefreshIndicator.adaptive(
           onRefresh: _getTalones,
           child: SafeArea(
@@ -117,9 +116,7 @@ class _TalonesAndRegisterPageState extends State<TalonesAndRegisterPage> {
                             number: '0123123',
                           ));
                     },
-                    child: const Center(
-                      child: Text('Записатьcя'),
-                    ),
+                    child: const Text('Записатьcя'),
                   ),
                 ],
               ),
@@ -139,12 +136,15 @@ class _TalonItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
+    return Ink(
+      decoration: const BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: kContainerBorderRadius,
       ),
       child: ListTile(
+        shape: const RoundedRectangleBorder(
+          borderRadius: kContainerBorderRadius,
+        ),
         onTap: onTap,
         title: const Text(
           'Талон на прием',
@@ -195,12 +195,11 @@ class _Dialog extends StatelessWidget {
               onPressed: () {
                 context.router.pop(true);
               },
-              child: const Center(
-                child: Text('Продолжить'),
-              ),
+              child: const Text('Продолжить'),
             ),
-            InkWell(
-              onTap: () => context.router.pop(false),
+            AppButton(
+              buttonstyle: BUTTONSTYLE.TERTIARY,
+              onPressed: () => context.router.pop(false),
               child: const Text('Отмена'),
             )
           ],

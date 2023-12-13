@@ -153,12 +153,37 @@ class OnlineDoctorRepositoryImpl implements OnlineDoctorRepository {
       result: [
         SpecialistResult(
             id: 1,
-            applicationUserFio: 'applicationUserFio',
-            applicationUserId: 'applicationUserId',
+            applicationUserFio: 'Michael Jackson',
+            applicationUserId: '1',
             organisationId: 1,
-            organisationName: 'organisationName',
-            etaj: 'etaj',
-            numberCabinet: 'numberCabinet'),
+            organisationName: 'Частная клиника',
+            etaj: '1/10',
+            numberCabinet: '23',
+            dictDoljnostName: 'Врач',
+            imagePath:
+                'https://ukrainianingermany.de/wp-content/uploads/2023/06/lekarzlekarz.jpg'),
+        SpecialistResult(
+            id: 2,
+            applicationUserFio: 'Donald Trump',
+            applicationUserId: '1',
+            organisationId: 1,
+            organisationName: 'Частная клиника',
+            etaj: '1/10',
+            numberCabinet: '23',
+            dictDoljnostName: 'Врач',
+            imagePath:
+                'https://olc.kg/wp-content/uploads/2023/07/zholdoshev_500px.png'),
+        SpecialistResult(
+            id: 3,
+            applicationUserFio: 'Jackie Chan',
+            applicationUserId: '1',
+            organisationId: 1,
+            organisationName: 'Частная клиника',
+            etaj: '1/10',
+            numberCabinet: '23',
+            dictDoljnostName: 'Врач',
+            imagePath:
+                'https://magazine.skyeng.ru/wp-content/uploads/2021/11/Kirill.jpg'),
       ],
     );
 

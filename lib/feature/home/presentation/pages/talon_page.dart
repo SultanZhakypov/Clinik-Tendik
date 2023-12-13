@@ -151,6 +151,7 @@ class TalonPage extends StatelessWidget {
                   ),
                 ),
                 AppButton(
+                  buttonstyle: BUTTONSTYLE.ALERT,
                   padding: const EdgeInsets.all(16),
                   onPressed: () {
                     showDialog(
@@ -165,9 +166,7 @@ class TalonPage extends StatelessWidget {
                       }
                     });
                   },
-                  child: const Center(
-                    child: Text('Отменить запись'),
-                  ),
+                  child: const Text('Отменить запись'),
                 ),
               ],
             ),
@@ -199,14 +198,15 @@ class _Dialog extends StatelessWidget {
               onPressed: () {
                 context.router.pop(true);
               },
-              child: const Center(
-                child: Text('Продолжить'),
-              ),
+              child: const Text('Продолжить'),
             ),
-            InkWell(
-              onTap: () => context.router.pop(false),
+            AppButton(
+              buttonstyle: BUTTONSTYLE.TERTIARY,
+              onPressed: () {
+                context.router.pop(false);
+              },
               child: const Text('Отмена'),
-            )
+            ),
           ],
         ),
       ),

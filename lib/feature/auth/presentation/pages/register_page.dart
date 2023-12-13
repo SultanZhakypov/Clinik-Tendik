@@ -108,9 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onPressed: () {
                     context.router.push(const AuthPageRoute());
                   },
-                  child: const Center(
-                    child: Text('Зарегистрироваться'),
-                  ),
+                  child: const Text('Зарегистрироваться'),
                 )
               ],
             ),

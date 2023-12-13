@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+const _kBorderRadius = BorderRadius.all(Radius.circular(12));
+
 class AppTextField extends StatelessWidget {
   const AppTextField({
     Key? key,
@@ -59,17 +61,17 @@ class AppTextField extends StatelessWidget {
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         filled: true,
-        focusedErrorBorder: OutlineInputBorder(
+        focusedErrorBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: _kBorderRadius,
         ),
-        errorBorder: OutlineInputBorder(
+        errorBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: _kBorderRadius,
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: _kBorderRadius,
         ),
       ),
     );

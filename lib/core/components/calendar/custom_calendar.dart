@@ -1,3 +1,4 @@
+import 'package:clinic_tendik/core/constants/app_radius.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -16,7 +17,7 @@ class CustomCalendar extends StatelessWidget {
       builder: (_, value, child) {
         return Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: kContainerBorderRadius,
             border: Border.all(color: const Color(0xffCCD5E1)),
             color: AppColors.white,
           ),

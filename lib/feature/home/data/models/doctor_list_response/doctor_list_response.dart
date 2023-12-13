@@ -45,6 +45,7 @@ class SpecialistResult with _$SpecialistResult {
     int? typeDoctor,
     String? etaj,
     String? numberCabinet,
+    String? imagePath,
   }) = _SpecialistResult;
 
   factory SpecialistResult.fromJson(Map<String, dynamic> json) =>
