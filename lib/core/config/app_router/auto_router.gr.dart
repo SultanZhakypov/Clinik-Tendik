@@ -12,12 +12,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:clinic_tendik/core/config/app_router/guards.dart' as _i8;
 import 'package:clinic_tendik/feature/auth/presentation/pages/auth_page.dart'
     as _i1;
 import 'package:clinic_tendik/feature/auth/presentation/pages/register_page.dart'
     as _i2;
-import 'package:clinic_tendik/feature/home/data/models/patient_registration_response/patient_registration_response.dart'
-    as _i8;
+import 'package:clinic_tendik/feature/home/data/models/talon_list_response/talon_list_response.dart'
+    as _i9;
 import 'package:clinic_tendik/feature/home/presentation/pages/online_doctor_page.dart'
     as _i5;
 import 'package:clinic_tendik/feature/home/presentation/pages/talon_page.dart'
@@ -27,8 +28,12 @@ import 'package:clinic_tendik/feature/home/presentation/pages/talones_and_regist
 import 'package:flutter/material.dart' as _i7;
 
 class AppRouter extends _i6.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+  AppRouter({
+    _i7.GlobalKey<_i7.NavigatorState>? navigatorKey,
+    required this.authGuard,
+  }) : super(navigatorKey);
+
+  final _i8.AuthGuard authGuard;
 
   @override
   final Map<String, _i6.PageFactory> pagesMap = {
@@ -41,17 +46,13 @@ class AppRouter extends _i6.RootStackRouter {
     RegisterPageRoute.name: (routeData) {
       return _i6.CupertinoPageX<dynamic>(
         routeData: routeData,
-        child: const _i2.RegisterPage(),
+        child: _i6.WrappedRoute(child: const _i2.RegisterPage()),
       );
     },
     TalonesAndRegisterPageRoute.name: (routeData) {
-      final args = routeData.argsAs<TalonesAndRegisterPageRouteArgs>();
       return _i6.CupertinoPageX<dynamic>(
         routeData: routeData,
-        child: _i3.TalonesAndRegisterPage(
-          key: args.key,
-          inn: args.inn,
-        ),
+        child: const _i3.TalonesAndRegisterPage(),
       );
     },
     TalonPageRoute.name: (routeData) {
@@ -77,7 +78,7 @@ class AppRouter extends _i6.RootStackRouter {
   List<_i6.RouteConfig> get routes => [
         _i6.RouteConfig(
           AuthPageRoute.name,
-          path: '/',
+          path: '/auth-page',
         ),
         _i6.RouteConfig(
           RegisterPageRoute.name,
@@ -85,7 +86,8 @@ class AppRouter extends _i6.RootStackRouter {
         ),
         _i6.RouteConfig(
           TalonesAndRegisterPageRoute.name,
-          path: '/talones-and-register-page',
+          path: '/',
+          guards: [authGuard],
         ),
         _i6.RouteConfig(
           TalonPageRoute.name,
@@ -104,7 +106,7 @@ class AuthPageRoute extends _i6.PageRouteInfo<void> {
   const AuthPageRoute()
       : super(
           AuthPageRoute.name,
-          path: '/',
+          path: '/auth-page',
         );
 
   static const String name = 'AuthPageRoute';
@@ -124,37 +126,14 @@ class RegisterPageRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.TalonesAndRegisterPage]
-class TalonesAndRegisterPageRoute
-    extends _i6.PageRouteInfo<TalonesAndRegisterPageRouteArgs> {
-  TalonesAndRegisterPageRoute({
-    _i7.Key? key,
-    required String inn,
-  }) : super(
+class TalonesAndRegisterPageRoute extends _i6.PageRouteInfo<void> {
+  const TalonesAndRegisterPageRoute()
+      : super(
           TalonesAndRegisterPageRoute.name,
-          path: '/talones-and-register-page',
-          args: TalonesAndRegisterPageRouteArgs(
-            key: key,
-            inn: inn,
-          ),
+          path: '/',
         );
 
   static const String name = 'TalonesAndRegisterPageRoute';
-}
-
-class TalonesAndRegisterPageRouteArgs {
-  const TalonesAndRegisterPageRouteArgs({
-    this.key,
-    required this.inn,
-  });
-
-  final _i7.Key? key;
-
-  final String inn;
-
-  @override
-  String toString() {
-    return 'TalonesAndRegisterPageRouteArgs{key: $key, inn: $inn}';
-  }
 }
 
 /// generated route for
@@ -162,7 +141,7 @@ class TalonesAndRegisterPageRouteArgs {
 class TalonPageRoute extends _i6.PageRouteInfo<TalonPageRouteArgs> {
   TalonPageRoute({
     _i7.Key? key,
-    _i8.PatientRegistrationData? data,
+    _i9.TalonResponse? data,
   }) : super(
           TalonPageRoute.name,
           path: '/talon-page',
@@ -183,7 +162,7 @@ class TalonPageRouteArgs {
 
   final _i7.Key? key;
 
-  final _i8.PatientRegistrationData? data;
+  final _i9.TalonResponse? data;
 
   @override
   String toString() {

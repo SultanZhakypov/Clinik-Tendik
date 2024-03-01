@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -31,8 +33,6 @@ class _AppButtonState extends State<AppButton> {
 
   @override
   void initState() {
-    super.initState();
-
     switch (widget.buttonstyle) {
       case BUTTONSTYLE.ALERT:
         _buttonStyle = const ButtonStyle(
@@ -42,7 +42,12 @@ class _AppButtonState extends State<AppButton> {
           surfaceTintColor: MaterialStatePropertyAll<Color>(AppColors.red),
         );
       case BUTTONSTYLE.PRIMARY:
-        _buttonStyle = const ButtonStyle();
+        _buttonStyle = const ButtonStyle(
+          foregroundColor: MaterialStatePropertyAll<Color>(AppColors.white),
+          backgroundColor: MaterialStatePropertyAll<Color>(AppColors.purple),
+          shadowColor: MaterialStatePropertyAll<Color>(Colors.transparent),
+          surfaceTintColor: MaterialStatePropertyAll<Color>(AppColors.purple),
+        );
       case BUTTONSTYLE.TERTIARY:
         _buttonStyle = const ButtonStyle(
           elevation: MaterialStatePropertyAll<double>(0),
@@ -55,6 +60,36 @@ class _AppButtonState extends State<AppButton> {
 
       default:
     }
+
+    if (widget.onPressed == null) {
+      _buttonStyle = const ButtonStyle(
+        foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
+        backgroundColor: MaterialStatePropertyAll<Color>(Colors.grey),
+      );
+    }
+
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant AppButton oldWidget) {
+    if (widget.onPressed != oldWidget.onPressed) {
+      if (widget.onPressed == null) {
+        _buttonStyle = const ButtonStyle(
+          foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
+          backgroundColor: MaterialStatePropertyAll<Color>(Colors.grey),
+        );
+      } else {
+        _buttonStyle = const ButtonStyle(
+          foregroundColor: MaterialStatePropertyAll<Color>(AppColors.white),
+          backgroundColor: MaterialStatePropertyAll<Color>(AppColors.purple),
+          shadowColor: MaterialStatePropertyAll<Color>(Colors.transparent),
+          surfaceTintColor: MaterialStatePropertyAll<Color>(AppColors.purple),
+        );
+      }
+      setState(() {});
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override

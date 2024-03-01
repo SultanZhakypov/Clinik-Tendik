@@ -4,8 +4,8 @@ class LoadingOverlay {
   static OverlayEntry? _instanceOfEntry;
 
   static void showLoadingOverlay(BuildContext context) {
-    removeLoadingOverlay();
     WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
+    removeLoadingOverlay();
 
     _instanceOfEntry = OverlayEntry(
       builder: (context) => Positioned(

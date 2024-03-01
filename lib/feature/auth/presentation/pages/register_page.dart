@@ -1,116 +1,177 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:clinic_tendik/core/components/buttons/app_button.dart';
+import 'package:clinic_tendik/core/components/loading/loading_overlay.dart';
 import 'package:clinic_tendik/core/components/text_fields/custom_textfield.dart';
 import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
+import 'package:clinic_tendik/core/config/dio/app_exception.dart';
+import 'package:clinic_tendik/feature/auth/data/models/auth_model/register_response.dart';
+import 'package:clinic_tendik/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
-class RegisterPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget with AutoRouteWrapper {
   const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider(
+      create: (_) => GetIt.I<AuthBloc>(),
+      child: this,
+    );
+  }
 }
 
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
-  late TextEditingController _innController;
-  late TextEditingController _surnameController;
-  late TextEditingController _nameController;
-  late TextEditingController _patronymicController;
-  late TextEditingController _addressController;
-  late TextEditingController _numberController;
-  bool? _whatsappNumber = false;
+  late TextEditingController _firstName;
+  late TextEditingController _lastName;
+  late TextEditingController _middleName;
+  late TextEditingController _email;
+  late TextEditingController _phoneNumber;
+  late TextEditingController _password;
 
   @override
   void initState() {
     super.initState();
 
-    _innController = TextEditingController();
-    _surnameController = TextEditingController();
-    _nameController = TextEditingController();
-    _patronymicController = TextEditingController();
-    _addressController = TextEditingController();
-    _numberController = TextEditingController();
+    _firstName = TextEditingController();
+    _lastName = TextEditingController();
+    _middleName = TextEditingController();
+    _email = TextEditingController();
+    _phoneNumber = TextEditingController();
+    _password = TextEditingController();
   }
 
   @override
   void dispose() {
-    _innController.dispose();
-    _surnameController.dispose();
-    _nameController.dispose();
-    _patronymicController.dispose();
-    _addressController.dispose();
-    _numberController.dispose();
+    _firstName.dispose();
+    _lastName.dispose();
+    _middleName.dispose();
+    _email.dispose();
+    _phoneNumber.dispose();
+    _password.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SizedBox(
-            height: MediaQuery.sizeOf(context).height,
-            child: Column(
-              children: [
-                const SizedBox(height: 56),
-                AppTextField(
-                  labelText: 'ИНН',
-                  controller: _innController,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: AppTextField(
-                    labelText: 'Фамилия',
-                    controller: _surnameController,
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (isOverlay) {
+            if (isOverlay == true) {
+              LoadingOverlay.showLoadingOverlay(context);
+            }
+          },
+          error: (error) {
+            LoadingOverlay.removeLoadingOverlay();
+            ExceptionWorker.processException(context, error: error);
+          },
+          successSignUp: (data) {
+            LoadingOverlay.removeLoadingOverlay();
+            context.router.pushAndPopUntil(
+              const TalonesAndRegisterPageRoute(),
+              predicate: (_) => false,
+            );
+          },
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Регистрация',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
+            child: SizedBox(
+              height: MediaQuery.sizeOf(context).height * 0.83,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppTextField(
+                    labelText: 'Имя',
+                    controller: _firstName,
+                    isRequired: true,
                   ),
-                ),
-                AppTextField(
-                  labelText: 'Имя',
-                  controller: _nameController,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: AppTextField(
-                    labelText: 'Отчество',
-                    controller: _patronymicController,
-                  ),
-                ),
-                AppTextField(
-                  labelText: 'Адрес',
-                  controller: _addressController,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: AppTextField(
-                    labelText: 'Номер телефона',
-                    controller: _numberController,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Checkbox(
-                      value: _whatsappNumber,
-                      onChanged: (v) {
-                        _whatsappNumber = v;
-                        setState(() {});
-                      },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: AppTextField(
+                      labelText: 'Фамилия',
+                      controller: _lastName,
+                      isRequired: true,
                     ),
-                    const SizedBox(width: 8),
-                    const Text('whatsapp номер на этом телефоне')
-                  ],
-                ),
-                const Spacer(),
-                AppButton(
-                  padding: const EdgeInsets.only(top: 16, bottom: 32),
-                  onPressed: () {
-                    context.router.push(const AuthPageRoute());
-                  },
-                  child: const Text('Зарегистрироваться'),
-                )
-              ],
+                  ),
+                  AppTextField(
+                    labelText: 'Отчество',
+                    controller: _middleName,
+                    isRequired: true,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: AppTextField(
+                      labelText: 'Email',
+                      controller: _email,
+                      isRequired: true,
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                  ),
+                  AppTextField(
+                    labelText: 'Номер телефона',
+                    isRequired: true,
+                    prefix: const Text(
+                      '+996',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15.5,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    controller: _phoneNumber,
+                    keyboardType: TextInputType.number,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: AppTextField(
+                      isPassword: true,
+                      isRequired: true,
+                      labelText: 'Пароль',
+                      controller: _password,
+                    ),
+                  ),
+                  const Spacer(),
+                  AppButton(
+                    padding: const EdgeInsets.only(top: 16, bottom: 32),
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() == true) {
+                        context.read<AuthBloc>().add(
+                              AuthEvent.signUp(
+                                RegisterRequest(
+                                  firstName: _firstName.text,
+                                  lastName: _lastName.text,
+                                  email: _email.text,
+                                  phoneNumber: '+996${_phoneNumber.text}',
+                                  middleName: _middleName.text,
+                                  password: _password.text,
+                                ),
+                              ),
+                            );
+                      }
+                    },
+                    child: const Text('Зарегистрироваться'),
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -2,6 +2,8 @@ name: clinic_tendik
 description: A new Flutter project.
 
 version: 1.0.0+1
+publish_to: none
+
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -26,6 +28,16 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   extended_masked_text: ^2.3.1
   path_provider: ^2.0.0
+  shared_preferences: ^2.2.2
+  freezed_annotation: ^2.4.1
+  another_flushbar: ^1.12.30
+  intl: ^0.18.1
+  modal_bottom_sheet:
+    git:
+      url: https://github.com/eli1stark/modal_bottom_sheet.git
+      ref: main
+      path: modal_bottom_sheet
+  pin_code_fields: ^8.0.1
 
 dev_dependencies:
   flutter_test:

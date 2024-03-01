@@ -1,23 +1,10 @@
-
 part of 'auth_bloc.dart';
 
-abstract class AuthState extends Equatable {
-	const AuthState();
-
-	@override
-	List<Object> get props => [];
+@freezed
+class AuthState with _$AuthState {
+  const factory AuthState.initial() = _Initial;
+  const factory AuthState.loading({bool? isOverlay}) = _Loading;
+  const factory AuthState.error(dynamic error) = _Error;
+  const factory AuthState.successSignUp(RegisterResponse data) = _SuccessSignUp;
+  const factory AuthState.successSignIn(AuthResponse data) = _SuccessSignIn;
 }
-
-class AuthInitialState extends AuthState {}		
-
-class AuthLoadingState extends AuthState {}
-
-class AuthSuccessState extends AuthState {}
-
-class AuthExceptionState extends AuthState {
-	const AuthExceptionState(this.exception);
-	final dynamic exception;
-
-	@override
-	List<Object> get props => [exception];
-}	

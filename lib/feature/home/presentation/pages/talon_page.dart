@@ -1,49 +1,44 @@
-import 'dart:convert';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/loading/loading_overlay.dart';
 import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
-import 'package:clinic_tendik/feature/home/data/models/patient_registration_response/patient_registration_response.dart';
-import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
+import 'package:clinic_tendik/core/config/dio/app_exception.dart';
+import 'package:clinic_tendik/feature/home/data/models/talon_list_response/talon_list_response.dart';
+import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:share_plus/share_plus.dart';
-
 class TalonPage extends StatelessWidget {
   const TalonPage({super.key, this.data});
 
-  final PatientRegistrationData? data;
+  final TalonResponse? data;
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<OnlineDoctorBloc, OnlineDoctorState>(
+    return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
-        if (state is OnlineDoctorLoadingState) {
-          if (state.isOverlay) {
-            LoadingOverlay.showLoadingOverlay(context);
-          }
-        }
-        if (state is DeleteTalonSuccessState) {
-          LoadingOverlay.removeLoadingOverlay();
-          context.router.pop();
-        }
-        if (state is PDFTalonSuccessState) {
-          LoadingOverlay.removeLoadingOverlay();
-          Share.shareXFiles([XFile(state.path)]);
-        }
-        if (state is OnlineDoctorExceptionState) {
-          LoadingOverlay.removeLoadingOverlay();
-          // ExceptionWorker.processExceptionV2(context, state.exception);
-        }
+        state.whenOrNull(
+          loading: (isOverlay) {
+            if (isOverlay == true) {
+              LoadingOverlay.showLoadingOverlay(context);
+            }
+          },
+          error: (error) {
+            LoadingOverlay.removeLoadingOverlay();
+            ExceptionWorker.processException(context, error: error);
+          },
+          successDeleteTalon: () {
+            LoadingOverlay.removeLoadingOverlay();
+            context.router.pop();
+          },
+        );
       },
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              context.read<OnlineDoctorBloc>().add(const GetListTalones());
+              context.read<HomeBloc>().add(const HomeEvent.getTalonList());
               context.router
                   .popUntilRouteWithName(TalonesAndRegisterPageRoute.name);
             },
@@ -65,87 +60,33 @@ class TalonPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const Center(
-                        child: Text('Талон на прием',
-                            style: TextStyle(fontSize: 16)),
-                      ),
-                      Center(
-                        child: RichText(
-                            text: TextSpan(
-                          text: data?.ozName,
-                          children: [
-                            TextSpan(text: data?.ozParentName),
-                          ],
-                          style: const TextStyle(fontSize: 14),
-                        )),
+                        child: Text(
+                          'Талон на прием',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                       _TextTile(
-                        title: 'Адрес',
-                        description: data?.ozAdress,
+                        title: 'Время',
+                        description: '${data?.localDate} ${data?.time}',
                       ),
                       _TextTile(
                         title: 'Специалист',
-                        description: data?.doctorName,
+                        description: data?.doctorFullName,
                       ),
                       _TextTile(
                         title: 'Специальность',
-                        description: data?.doctorSpecialnost,
+                        description: data?.departmentName,
                       ),
                       _TextTile(
-                        title: 'Этаж/Кабинет',
-                        description: data?.etajCabinet,
+                        title: 'Номер телефона',
+                        description: data?.phoneNumber,
                       ),
                       _TextTile(
                         title: 'Пациент',
-                        description: data?.patientFio,
-                      ),
-                      _TextTile(
-                        title: 'Дата/Время',
-                        description: data?.dataVremya,
-                      ),
-                      _TextTile(
-                        title: 'Статус ОМС',
-                        description: data?.statusOms,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Text(
-                          'Дата формирования талона: ${data?.dataCreate}',
-                          style: const TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Image.memory(
-                          base64Decode(data?.byteQr ?? ''),
-                          scale: 2,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () => context
-                            .read<OnlineDoctorBloc>()
-                            .add(GetTalonPdf(id: data?.id)),
-                        child: Row(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(8),
-                              margin: const EdgeInsets.only(right: 10),
-                              decoration: BoxDecoration(
-                                color: AppColors.purple,
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: const Icon(
-                                Icons.upload,
-                                color: AppColors.white,
-                              ),
-                            ),
-                            const Flexible(
-                              child: Text(
-                                'Поделиться',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            ),
-                          ],
-                        ),
+                        description: '${data?.firstName} ${data?.lastName}',
                       ),
                     ],
                   ),
@@ -161,8 +102,8 @@ class TalonPage extends StatelessWidget {
                     ).then((value) {
                       if (value) {
                         context
-                            .read<OnlineDoctorBloc>()
-                            .add(DeleteTalon(id: data?.id));
+                            .read<HomeBloc>()
+                            .add(HomeEvent.deleteTalon(data?.id ?? 0));
                       }
                     });
                   },
@@ -191,9 +132,13 @@ class _Dialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('Вы уверены, что хотите отменить запись?',
-                style: TextStyle(fontSize: 18)),
+            const Text(
+              'Вы уверены, что хотите отменить запись?',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
             AppButton(
+              buttonstyle: BUTTONSTYLE.ALERT,
               padding: const EdgeInsets.only(top: 32, bottom: 16),
               onPressed: () {
                 context.router.pop(true);
@@ -230,10 +175,17 @@ class _TextTile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: const TextStyle(fontSize: 14)),
+          Text(title,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
           Text(
             description ?? '',
-            style: const TextStyle(fontSize: 16),
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),

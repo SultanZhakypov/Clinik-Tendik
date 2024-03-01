@@ -59,20 +59,18 @@ generate:
 # ---Domain----------------------------------------------------          
   - category: domain
     contents:
-      - file: NAME_Interactor.dart
+      - file: NAME_interactor.dart
         code: | 
           import 'package:injectable/injectable.dart';
 
-          abstract class NAMEInteractor {
-            Future<void> exampleFunc();
-          }
+          
 
-          @Singleton(as: NAMEInteractor)
-          class NAMEInteractorImpl implements NAMEInteractor {
-            NAMEInteractorImpl(this._repository);
+          @lazySinglton
+          class NAMEInteracto {
+            NAMEInteractor(this._repository);
             final NAMERepository _repository;
 
-            @override
+            
             Future<void> exampleFunc() async {
               try {
                 await _repository.exampleFuncRepo();

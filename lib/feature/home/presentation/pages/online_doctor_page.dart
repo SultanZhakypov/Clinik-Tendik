@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/loading/loading_overlay.dart';
 import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
-import 'package:clinic_tendik/feature/home/data/models/patient_info_model/patient_info_model.dart';
-import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
+import 'package:clinic_tendik/core/config/dio/app_exception.dart';
+import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:clinic_tendik/feature/home/presentation/widgets/choice_date_page_view.dart';
 import 'package:clinic_tendik/feature/home/presentation/widgets/choise_specialist_page_view.dart';
-import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -20,6 +18,9 @@ class OnlineDoctorPage extends StatefulWidget {
 
 class _OnlineDoctorPageState extends State<OnlineDoctorPage> {
   late PageController _pageController;
+  static const _durationPage = Duration(milliseconds: 350);
+  final ValueNotifier<int?> doctorId = ValueNotifier<int?>(null);
+  final ValueNotifier<String?> departmentName = ValueNotifier<String?>(null);
 
   @override
   void initState() {
@@ -30,73 +31,95 @@ class _OnlineDoctorPageState extends State<OnlineDoctorPage> {
   @override
   void dispose() {
     _pageController.dispose();
+
     super.dispose();
+  }
+
+  void _onPop() {
+    if (_pageController.page == _pageController.initialPage) {
+      Navigator.of(context).pop();
+    } else {
+      _pageController.previousPage(
+        duration: _durationPage,
+        curve: Curves.ease,
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<OnlineDoctorBloc, OnlineDoctorState>(
+    return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
-        if (state is OnlineDoctorLoadingState) {
-          if (state.isOverlay) {
-            LoadingOverlay.showLoadingOverlay(context);
-          }
-        }
-        if (state is OnlineDoctorExceptionState) {
-          LoadingOverlay.removeLoadingOverlay();
-          // ExceptionWorker.processExceptionV2(context, state.exception);
-        }
-
-        // SPECIALIST PAGEVIEW
-        if (state is DoctorsTimeSuccessState) {
-          LoadingOverlay.removeLoadingOverlay();
-          if (state.nextPage) {
-            _pageController.nextPage(
-              duration: const Duration(milliseconds: 350),
-              curve: Curves.ease,
-            );
-          }
-        }
-        //DATE PAGEVIEW
-        if (state is PatientRegisterSuccessState) {
-          LoadingOverlay.removeLoadingOverlay();
-
-          context.router.push(TalonPageRoute(data: state.data));
-        }
+        state.whenOrNull(
+          loading: (isOverlay) {
+            if (isOverlay == true) {
+              LoadingOverlay.showLoadingOverlay(context);
+            }
+          },
+          error: (error) {
+            LoadingOverlay.removeLoadingOverlay();
+            ExceptionWorker.processException(context, error: error);
+          },
+          successTalon: (data) {
+            context.router.push(TalonPageRoute(data: data));
+          },
+          successDoctorsTime: (data, nextpage) {
+            LoadingOverlay.removeLoadingOverlay();
+            if (nextpage) {
+              _pageController.nextPage(
+                duration: const Duration(milliseconds: 350),
+                curve: Curves.easeIn,
+              );
+            }
+          },
+        );
       },
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Онлайн запись к врачу',
+      child: WillPopScope(
+        onWillPop: () async {
+          _onPop();
+          return false;
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              'Онлайн запись к врачу',
+            ),
           ),
-        ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: SmoothPageIndicator(
-                  controller: _pageController,
-                  count: 2,
-                  effect: const WormEffect(
-                    dotHeight: 10,
-                    dotWidth: 10,
-                    spacing: 4,
-                    activeDotColor: Colors.deepPurpleAccent,
+          body: SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: SmoothPageIndicator(
+                    controller: _pageController,
+                    count: 2,
+                    effect: const WormEffect(
+                      dotHeight: 10,
+                      dotWidth: 10,
+                      spacing: 4,
+                      activeDotColor: Colors.deepPurpleAccent,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: _pageController,
-                  children: const [
-                    ChoiceSpecialistPageView(),
-                    ChoiceDatePageView(),
-                  ],
-                ),
-              )
-            ],
+                Expanded(
+                  child: PageView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: _pageController,
+                    children: [
+                      ChoiceSpecialistPageView(
+                        doctorId: doctorId,
+                        departmentName: departmentName,
+                        pageController: _pageController,
+                      ),
+                      ChoiceDatePageView(
+                        departmentName: departmentName,
+                        doctorId: doctorId,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

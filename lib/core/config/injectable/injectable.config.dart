@@ -8,17 +8,14 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../../feature/auth/data/repository/auth_repository.dart' as _i3;
-import '../../../feature/auth/domain/auth_Interactor.dart' as _i6;
-import '../../../feature/auth/presentation/bloc/auth_bloc.dart' as _i9;
-import '../../../feature/home/data/repository/online_doctor_repository.dart'
-    as _i4;
-import '../../../feature/home/domain/online_doctor_Interactor.dart' as _i7;
-import '../../../feature/home/presentation/bloc/online_doctor_bloc.dart'
-    as _i10;
-import '../../../feature/settings/data/repository/settings_repository.dart'
-    as _i5;
-import '../../../feature/settings/domain/settings_Interactor.dart' as _i8;
+import '../../../feature/auth/data/repository/auth_repository.dart' as _i6;
+import '../../../feature/auth/domain/auth_interactor.dart' as _i8;
+import '../../../feature/auth/presentation/bloc/auth_bloc.dart' as _i10;
+import '../../../feature/home/data/repository/home_repository.dart' as _i5;
+import '../../../feature/home/domain/home_interactor.dart' as _i7;
+import '../../../feature/home/presentation/bloc/home_bloc.dart' as _i9;
+import '../app_router/guards.dart' as _i3;
+import '../dio/dio_generator.dart' as _i4;
 import 'app_module.dart' as _i11;
 
 const String _prod = 'prod';
@@ -36,23 +33,23 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   final appModule = _$AppModule();
-  gh.singleton<_i3.AuthRepository>(_i3.AuthRepositoryImpl());
-  gh.singleton<_i4.OnlineDoctorRepository>(_i4.OnlineDoctorRepositoryImpl());
-  gh.singleton<_i5.SettingsRepository>(_i5.SettingsRepositoryImpl());
+  gh.singleton<_i3.AuthGuard>(_i3.AuthGuard());
+  gh.singleton<_i4.DioGenerator>(_i4.DioGenerator());
+  gh.singleton<_i5.HomeRepository>(
+      _i5.HomeRepositoryImpl(get<_i4.DioGenerator>()));
   gh.singleton<String>(
     appModule.baseUrlDpProd,
     instanceName: 'dpBaseUrl',
     registerFor: {_prod},
   );
-  gh.singleton<_i6.AuthInteractor>(
-      _i6.AuthInteractorImpl(get<_i3.AuthRepository>()));
-  gh.singleton<_i7.OnlineDoctorInteractor>(
-      _i7.OnlineDoctorInteractorImpl(get<_i4.OnlineDoctorRepository>()));
-  gh.singleton<_i8.SettingsInteractor>(
-      _i8.SettingsInteractorImpl(get<_i5.SettingsRepository>()));
-  gh.factory<_i9.AuthBloc>(() => _i9.AuthBloc(get<_i6.AuthInteractor>()));
-  gh.factory<_i10.OnlineDoctorBloc>(
-      () => _i10.OnlineDoctorBloc(get<_i7.OnlineDoctorInteractor>()));
+  gh.singleton<_i6.AuthRepository>(
+      _i6.AuthRepositoryImpl(get<_i4.DioGenerator>()));
+  gh.singleton<_i7.HomeInteractor>(
+      _i7.HomeInteractor(get<_i5.HomeRepository>()));
+  gh.singleton<_i8.AuthInteractor>(
+      _i8.AuthInteractor(get<_i6.AuthRepository>()));
+  gh.factory<_i9.HomeBloc>(() => _i9.HomeBloc(get<_i7.HomeInteractor>()));
+  gh.factory<_i10.AuthBloc>(() => _i10.AuthBloc(get<_i8.AuthInteractor>()));
   return get;
 }
 

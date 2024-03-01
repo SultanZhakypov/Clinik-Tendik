@@ -1,5 +1,7 @@
 import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
-import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
+import 'package:clinic_tendik/core/config/app_router/guards.dart';
+import 'package:clinic_tendik/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,19 +18,25 @@ class _ClinicTendikAppState extends State<ClinicTendikApp> {
 
   @override
   void initState() {
-    _rootRouter = AppRouter();
+    _rootRouter = AppRouter(authGuard: GetIt.I<AuthGuard>());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetIt.I<OnlineDoctorBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => GetIt.I<AuthBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => GetIt.I<HomeBloc>(),
+        ),
+      ],
       child: MaterialApp.router(
         theme: ThemeData(
           useMaterial3: true,
           splashColor: Colors.transparent,
-          
           scaffoldBackgroundColor: Colors.grey[200],
           inputDecorationTheme:
               const InputDecorationTheme(fillColor: AppColors.white),
@@ -43,5 +51,3 @@ class _ClinicTendikAppState extends State<ClinicTendikApp> {
     );
   }
 }
-
-

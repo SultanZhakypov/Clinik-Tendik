@@ -2,14 +2,22 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clinic_tendik/core/components/buttons/app_button.dart';
 import 'package:clinic_tendik/core/components/text_fields/custom_textfield.dart';
 import 'package:clinic_tendik/core/constants/app_radius.dart';
-import 'package:clinic_tendik/feature/home/data/models/doctor_list_response/doctor_list_response.dart';
-import 'package:clinic_tendik/feature/home/presentation/bloc/online_doctor_bloc.dart';
+import 'package:clinic_tendik/feature/home/data/models/doctors_list/doctors_list_response.dart';
+import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChoiceSpecialistPageView extends StatefulWidget {
-  const ChoiceSpecialistPageView({super.key});
+  const ChoiceSpecialistPageView({
+    super.key,
+    required this.pageController,
+    required this.doctorId,
+    required this.departmentName,
+  });
+  final PageController pageController;
+  final ValueNotifier<int?> doctorId;
+  final ValueNotifier<String?> departmentName;
 
   @override
   State<ChoiceSpecialistPageView> createState() =>
@@ -23,7 +31,7 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
   @override
   void initState() {
     _searchController = TextEditingController();
-    context.read<OnlineDoctorBloc>().add(const GetDoctorsList());
+    context.read<HomeBloc>().add(const HomeEvent.getDoctorList());
     FocusManager.instance.primaryFocus?.unfocus();
     super.initState();
   }
@@ -34,11 +42,14 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
     super.dispose();
   }
 
-  void _onTap(int index) {
+  void _onTap(int index, {required DoctorsListResponse data}) {
     if (_isSelectedIndex == index) {
       _isSelectedIndex = -1;
+      widget.doctorId.value = null;
     } else {
       _isSelectedIndex = index;
+      widget.doctorId.value = data.id;
+      widget.departmentName.value = data.departmentName;
     }
     setState(() {});
   }
@@ -57,54 +68,68 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
               hintText: 'Поиск по ФИО',
               controller: _searchController,
               onChanged: (v) {
-                context
-                    .read<OnlineDoctorBloc>()
-                    .add(SearchDoctorsList(_searchController.text));
+                context.read<HomeBloc>().add(
+                      HomeEvent.searchDoctorList(_searchController.text),
+                    );
               },
             ),
           ),
-          BlocBuilder<OnlineDoctorBloc, OnlineDoctorState>(
-            buildWhen: (previous, current) =>
-                current is DoctorsListSuccessState ||
-                current is OnlineDoctorExceptionState,
+          BlocBuilder<HomeBloc, HomeState>(
+            buildWhen: (previous, current) => current.maybeWhen(
+              orElse: () => false,
+              successDoctorList: (data) => true,
+            ),
             builder: (context, state) {
-              if (state is OnlineDoctorExceptionState) {
-                return Center(
-                  child: Text(state.exception.toString()),
-                );
-              }
-              if (state is DoctorsListSuccessState) {
-                return Expanded(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.only(top: 18),
-                    itemCount: state.data?.length ?? 0,
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 12),
-                    itemBuilder: (context, index) => _SpecialistItem(
-                      data: state.data?[index],
-                      isSelected: _isSelectedIndex == index,
-                      onTap: () => _onTap(index),
-                    ),
+              return state.maybeWhen(
+                orElse: () => const Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator.adaptive(),
                   ),
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator.adaptive(),
+                ),
+                successDoctorList: (data) {
+                  return data.isEmpty
+                      ? const Expanded(
+                          child: Center(
+                            child: Text('Не найдено'),
+                          ),
+                        )
+                      : Expanded(
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              ListView.separated(
+                                padding: const EdgeInsets.only(top: 18),
+                                itemCount: data.length,
+                                separatorBuilder: (context, index) =>
+                                    const SizedBox(height: 12),
+                                itemBuilder: (context, index) =>
+                                    _SpecialistItem(
+                                  data: data[index],
+                                  isSelected: _isSelectedIndex == index,
+                                  onTap: () => _onTap(index, data: data[index]),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 16),
+                                child: AppButton(
+                                  onPressed: widget.doctorId.value == null
+                                      ? null
+                                      : () async {
+                                          widget.pageController.nextPage(
+                                            duration: const Duration(
+                                                milliseconds: 350),
+                                            curve: Curves.easeIn,
+                                          );
+                                        },
+                                  child: const Text('Далее'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                },
               );
             },
-          ),
-          AppButton(
-            padding: const EdgeInsets.only(bottom: 32, top: 16),
-            onPressed: _isSelectedIndex == -1
-                ? null
-                : () {
-                    context.read<OnlineDoctorBloc>().add(GetDoctorsTime(
-                          date: DateTime.now(),
-                          index: _isSelectedIndex,
-                          nextPage: true,
-                        ));
-                  },
-            child: const Text('Далее'),
           ),
         ],
       ),
@@ -121,13 +146,13 @@ class _SpecialistItem extends StatelessWidget {
 
   final Function() onTap;
   final bool isSelected;
-  final SpecialistResult? data;
+  final DoctorsListResponse? data;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: kContainerBorderRadius,
       onTap: onTap,
-      child: Ink(
+      child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: AppColors.white,
@@ -136,52 +161,58 @@ class _SpecialistItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: CachedNetworkImage(
-                imageUrl: data?.imagePath ?? '',
-                height: 56,
-                width: 56,
-                imageBuilder: (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    borderRadius: kCircleBorderRadius,
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: CachedNetworkImage(
+                  imageUrl: data?.image ?? '',
+                  height: 56,
+                  width: 56,
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      borderRadius: kCircleBorderRadius,
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
+                  errorWidget: (context, url, error) {
+                    return const Icon(Icons.error);
+                  },
                 ),
-                errorWidget: (context, url, error) {
-                  return const Icon(Icons.error);
-                },
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  data?.applicationUserFio ?? '',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: isSelected ? AppColors.purple : null,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: RichText(
-                    text: TextSpan(
-                      text: '${data?.dictDoljnostName}/ ',
-                      style: TextStyle(
-                          color: isSelected ? AppColors.purple : Colors.black),
-                      children: [
-                        TextSpan(
-                          text: data?.organisationName,
-                        ),
-                      ],
+            Expanded(
+              flex: 4,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${data?.firstName} ${data?.lastName}',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: isSelected ? AppColors.purple : null,
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: RichText(
+                      text: TextSpan(
+                        text: '',
+                        style: TextStyle(
+                            color:
+                                isSelected ? AppColors.purple : Colors.black),
+                        children: [
+                          TextSpan(
+                            text: data?.position,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
