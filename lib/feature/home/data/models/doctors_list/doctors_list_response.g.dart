@@ -9,6 +9,7 @@ part of 'doctors_list_response.dart';
 DoctorsListResponse _$DoctorsListResponseFromJson(Map<String, dynamic> json) =>
     DoctorsListResponse(
       id: json['id'] as int?,
+      middleName: json['middleName'] as String?,
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       image: json['image'] as String?,
@@ -30,5 +31,6 @@ Map<String, dynamic> _$DoctorsListResponseToJson(
       'departmentName': instance.departmentName,
       'scheduleUntil': instance.scheduleUntil,
       'description': instance.description,
+      'middleName': instance.middleName,
       'isActive': instance.isActive,
     };

@@ -2,7 +2,7 @@ import 'package:clinic_tendik/feature/home/data/models/create_talon/create_talon
 import 'package:clinic_tendik/feature/home/data/models/doctors_list/doctors_list_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctors_time/doctors_time_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/patient_info/patient_info_response.dart';
-import 'package:clinic_tendik/feature/home/data/models/receive_code/receive_code_response.dart';
+import 'package:clinic_tendik/feature/home/data/models/pdf_analyze/pdf_analyze.dart';
 import 'package:clinic_tendik/feature/home/data/models/talon_list_response/talon_list_response.dart';
 import 'package:clinic_tendik/feature/home/domain/home_interactor.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         try {
           emit(const HomeState.loading(isOverlay: true));
           final res = await _interactor.getTalonDetail(value.id);
-          emit(HomeState.successTalon(res));
+          emit(HomeState.successTalon(res,false));
         } catch (e) {
           emit(HomeState.error(e));
         }
@@ -96,7 +96,34 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         try {
           emit(const HomeState.loading(isOverlay: true));
           final res = await _interactor.createTalon(value.createTalonRequest);
-          emit(HomeState.successTalon(res));
+          emit(HomeState.successTalon(res,true));
+        } catch (e) {
+          emit(HomeState.error(e));
+        }
+      },
+      getResultNumber: (v) async {
+        try {
+          emit(const HomeState.loading(isOverlay: true));
+          final res = await _interactor.getResultNumber(v.resultNumber);
+          emit(HomeState.successResultNumber(res));
+        } catch (e) {
+          emit(HomeState.error(e));
+        }
+      },
+      getResultData: (v) async {
+        try {
+          emit(const HomeState.loading());
+          final res = await _interactor.getResultData();
+          emit(HomeState.successgetResultData(res));
+        } catch (e) {
+          emit(HomeState.error(e));
+        }
+      },
+      getPDF: (v) async {
+        try {
+          emit(const HomeState.loading());
+          final res = await _interactor.getPDF(v.fileName);
+          emit(HomeState.successPDF(res));
         } catch (e) {
           emit(HomeState.error(e));
         }

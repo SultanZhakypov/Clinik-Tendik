@@ -6,7 +6,6 @@ part 'register_response.g.dart';
 class RegisterRequest {
   final String? firstName;
   final String? lastName;
-  final String? email;
   final String? phoneNumber;
   final String? password;
   final String? middleName;
@@ -14,7 +13,6 @@ class RegisterRequest {
   RegisterRequest({
     this.firstName,
     this.lastName,
-    this.email,
     this.phoneNumber,
     this.password,
     this.middleName,

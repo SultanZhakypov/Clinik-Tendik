@@ -4,6 +4,7 @@ import 'package:clinic_tendik/core/constants/app_radius.dart';
 import 'package:clinic_tendik/core/helpers/storage_helper.dart';
 import 'package:clinic_tendik/feature/home/data/models/create_talon/create_talon_response.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
+import 'package:clinic_tendik/generated/locale_keys.g.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,8 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Выберите дату', style: TextStyle(fontSize: 16)),
+          Text(LocaleKeys.choose_date.tr(),
+              style: const TextStyle(fontSize: 16)),
           Container(
             padding: const EdgeInsets.all(16),
             margin: const EdgeInsets.only(top: 16),
@@ -83,12 +85,12 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
                 CustomCalendar(controller: _calendarController),
                 const SizedBox(height: 4),
                 _TimeTile(
-                  title: 'Свободное время',
+                  title: LocaleKeys.free_time.tr(),
                   color: Colors.transparent,
                   border: Border.all(color: AppColors.green),
                 ),
-                const _TimeTile(
-                  title: 'Время занятое вами',
+                _TimeTile(
+                  title: LocaleKeys.busy_time.tr(),
                   color: AppColors.green,
                 ),
                 BlocBuilder<HomeBloc, HomeState>(
@@ -106,20 +108,21 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
                       ),
                       successDoctorsTime: (data, n) {
                         if (data.freeTimes?.isEmpty ?? true) {
-                          return const SizedBox(
+                          return SizedBox(
                             height: 64,
                             child: Center(
-                              child: Text('В этот день приемов нет'),
+                              child: Text(LocaleKeys.empty_appointment.tr()),
                             ),
                           );
                         } else {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Padding(
-                                padding: EdgeInsets.only(top: 16, bottom: 11),
-                                child: Text('Выберите время',
-                                    style: TextStyle(fontSize: 16)),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 16, bottom: 11),
+                                child: Text(LocaleKeys.choose_time.tr(),
+                                    style: const TextStyle(fontSize: 16)),
                               ),
                               SizedBox(
                                 width: MediaQuery.sizeOf(context).width,
@@ -156,11 +159,12 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
                   },
                 ),
                 if (_isVisitingTheDoctor)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Text(
-                      'До посещения врача вам необходимо пройти осмотр у медсестры',
-                      style: TextStyle(fontSize: 14, color: AppColors.red),
+                      LocaleKeys.time_destination.tr(),
+                      style:
+                          const TextStyle(fontSize: 14, color: AppColors.red),
                     ),
                   ),
               ],
@@ -173,31 +177,29 @@ class _ChoiceDatePageViewState extends State<ChoiceDatePageView> {
               padding: const EdgeInsets.symmetric(vertical: 32),
               onPressed: _selectedTime == null
                   ? null
-                  : ()  {
-                      StorageHelper.readData('email').then((email) {
-                        StorageHelper.readData('phoneNumber')
-                            .then((phoneNumber) {
-                          StorageHelper.readData('fullName').then((fullName) {
-                            context.read<HomeBloc>().add(
-                                  HomeEvent.createTalon(
-                                    CreateTalonRequest(
-                                      userEmail: email,
-                                      userPhoneNumber: phoneNumber,
-                                      userFullName: fullName,
-                                      doctorId: widget.doctorId.value,
-                                      timeOfVisiting: _selectedTime,
-                                      departmentName:
-                                          widget.departmentName.value,
-                                      dateOfVisiting: DateFormat('yyyy-MM-dd')
-                                          .format(_calendarController.value),
-                                    ),
+                  : () {
+                      StorageHelper.readData('phoneNumber').then((phoneNumber) {
+                        StorageHelper.readData('fullName').then((fullName) {
+                          fullName as String;
+                          context.read<HomeBloc>().add(
+                                HomeEvent.createTalon(
+                                  CreateTalonRequest(
+                                    phoneNumber: phoneNumber,
+                                    firstName: fullName.split(' ')[0],
+                                    lastName: fullName.split(' ').first,
+                                    middleName: fullName.split(' ').last,
+                                    doctorId: widget.doctorId.value,
+                                    timeOfVisiting: _selectedTime,
+                                    departmentName: widget.departmentName.value,
+                                    dateOfVisiting: DateFormat('yyyy-MM-dd')
+                                        .format(_calendarController.value),
                                   ),
-                                );
-                          });
+                                ),
+                              );
                         });
                       });
                     },
-              child: const Text('Подтвердить'),
+              child: Text(LocaleKeys.checkpoint_button.tr()),
             ),
           ),
         ],

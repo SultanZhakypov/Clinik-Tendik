@@ -8,11 +8,18 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.searchDoctorList(String word) = _SearchDoctorList;
   const factory HomeEvent.getCode(String email) = _GetCode;
   const factory HomeEvent.deleteTalon(int id) = _DeleteTalon;
-  const factory HomeEvent.createTalon(CreateTalonRequest createTalonRequest) = _CreateTalon;
+  const factory HomeEvent.createTalon(CreateTalonRequest createTalonRequest) =
+      _CreateTalon;
   const factory HomeEvent.getDoctorsTime({
     int? doctorId,
     String? date,
     required bool isOverlay,
     required bool nextPage,
   }) = _GetDoctorsTime;
+
+  const factory HomeEvent.getResultNumber(String resultNumber) =
+      _GetResultNumber;
+  const factory HomeEvent.getResultData() = _GetResultData;
+  const factory HomeEvent.getPDF( String? fileName) = _GetPDF;
+  
 }

@@ -12,10 +12,12 @@ class DoctorsListResponse {
   final String? departmentName;
   final String? scheduleUntil;
   final String? description;
+  final String? middleName;
   final bool? isActive;
 
   DoctorsListResponse({
     this.id,
+    this.middleName,
     this.firstName,
     this.lastName,
     this.image,

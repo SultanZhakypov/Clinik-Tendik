@@ -6,6 +6,8 @@ import 'package:clinic_tendik/core/config/app_router/auto_router.gr.dart';
 import 'package:clinic_tendik/core/config/dio/app_exception.dart';
 import 'package:clinic_tendik/feature/auth/data/models/auth_model/register_response.dart';
 import 'package:clinic_tendik/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:clinic_tendik/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -81,9 +83,9 @@ class _RegisterPageState extends State<RegisterPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Регистрация',
-            style: TextStyle(
+          title: Text(
+            LocaleKeys.registration.tr(),
+            style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
@@ -100,40 +102,33 @@ class _RegisterPageState extends State<RegisterPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppTextField(
-                    labelText: 'Имя',
+                    labelText: LocaleKeys.name.tr(),
                     controller: _firstName,
                     isRequired: true,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: AppTextField(
-                      labelText: 'Фамилия',
+                      labelText: LocaleKeys.last_name.tr(),
                       controller: _lastName,
                       isRequired: true,
                     ),
                   ),
-                  AppTextField(
-                    labelText: 'Отчество',
-                    controller: _middleName,
-                    isRequired: true,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(bottom: 8),
                     child: AppTextField(
-                      labelText: 'Email',
-                      controller: _email,
+                      labelText: LocaleKeys.middle_name.tr(),
+                      controller: _middleName,
                       isRequired: true,
-                      keyboardType: TextInputType.emailAddress,
                     ),
                   ),
                   AppTextField(
-                    labelText: 'Номер телефона',
+                    labelText: LocaleKeys.phone_number.tr(),
                     isRequired: true,
                     prefix: const Text(
                       '+996',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 15.5,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
@@ -145,7 +140,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: AppTextField(
                       isPassword: true,
                       isRequired: true,
-                      labelText: 'Пароль',
+                      labelText: LocaleKeys.password.tr(),
                       controller: _password,
                     ),
                   ),
@@ -159,7 +154,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                 RegisterRequest(
                                   firstName: _firstName.text,
                                   lastName: _lastName.text,
-                                  email: _email.text,
                                   phoneNumber: '+996${_phoneNumber.text}',
                                   middleName: _middleName.text,
                                   password: _password.text,
@@ -168,7 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             );
                       }
                     },
-                    child: const Text('Зарегистрироваться'),
+                    child: Text(LocaleKeys.sign_up.tr()),
                   )
                 ],
               ),

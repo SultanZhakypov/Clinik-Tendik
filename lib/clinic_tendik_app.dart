@@ -3,6 +3,7 @@ import 'package:clinic_tendik/core/config/app_router/guards.dart';
 import 'package:clinic_tendik/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -34,6 +35,9 @@ class _ClinicTendikAppState extends State<ClinicTendikApp> {
         ),
       ],
       child: MaterialApp.router(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         theme: ThemeData(
           useMaterial3: true,
           splashColor: Colors.transparent,

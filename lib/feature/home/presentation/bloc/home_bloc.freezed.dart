@@ -29,6 +29,9 @@ mixin _$HomeEvent {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +46,9 @@ mixin _$HomeEvent {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,9 @@ mixin _$HomeEvent {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +79,9 @@ mixin _$HomeEvent {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +94,9 @@ mixin _$HomeEvent {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +109,9 @@ mixin _$HomeEvent {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -165,6 +183,9 @@ class _$GetTalonListImpl implements _GetTalonList {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return getTalonList();
   }
@@ -182,6 +203,9 @@ class _$GetTalonListImpl implements _GetTalonList {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return getTalonList?.call();
   }
@@ -199,6 +223,9 @@ class _$GetTalonListImpl implements _GetTalonList {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (getTalonList != null) {
@@ -218,6 +245,9 @@ class _$GetTalonListImpl implements _GetTalonList {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return getTalonList(this);
   }
@@ -233,6 +263,9 @@ class _$GetTalonListImpl implements _GetTalonList {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return getTalonList?.call(this);
   }
@@ -248,6 +281,9 @@ class _$GetTalonListImpl implements _GetTalonList {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (getTalonList != null) {
@@ -337,6 +373,9 @@ class _$GetTalonDetailImpl implements _GetTalonDetail {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return getTalonDetail(id);
   }
@@ -354,6 +393,9 @@ class _$GetTalonDetailImpl implements _GetTalonDetail {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return getTalonDetail?.call(id);
   }
@@ -371,6 +413,9 @@ class _$GetTalonDetailImpl implements _GetTalonDetail {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (getTalonDetail != null) {
@@ -390,6 +435,9 @@ class _$GetTalonDetailImpl implements _GetTalonDetail {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return getTalonDetail(this);
   }
@@ -405,6 +453,9 @@ class _$GetTalonDetailImpl implements _GetTalonDetail {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return getTalonDetail?.call(this);
   }
@@ -420,6 +471,9 @@ class _$GetTalonDetailImpl implements _GetTalonDetail {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (getTalonDetail != null) {
@@ -487,6 +541,9 @@ class _$GetDoctorListImpl implements _GetDoctorList {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return getDoctorList();
   }
@@ -504,6 +561,9 @@ class _$GetDoctorListImpl implements _GetDoctorList {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return getDoctorList?.call();
   }
@@ -521,6 +581,9 @@ class _$GetDoctorListImpl implements _GetDoctorList {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (getDoctorList != null) {
@@ -540,6 +603,9 @@ class _$GetDoctorListImpl implements _GetDoctorList {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return getDoctorList(this);
   }
@@ -555,6 +621,9 @@ class _$GetDoctorListImpl implements _GetDoctorList {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return getDoctorList?.call(this);
   }
@@ -570,6 +639,9 @@ class _$GetDoctorListImpl implements _GetDoctorList {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (getDoctorList != null) {
@@ -659,6 +731,9 @@ class _$SearchDoctorListImpl implements _SearchDoctorList {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return searchDoctorList(word);
   }
@@ -676,6 +751,9 @@ class _$SearchDoctorListImpl implements _SearchDoctorList {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return searchDoctorList?.call(word);
   }
@@ -693,6 +771,9 @@ class _$SearchDoctorListImpl implements _SearchDoctorList {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (searchDoctorList != null) {
@@ -712,6 +793,9 @@ class _$SearchDoctorListImpl implements _SearchDoctorList {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return searchDoctorList(this);
   }
@@ -727,6 +811,9 @@ class _$SearchDoctorListImpl implements _SearchDoctorList {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return searchDoctorList?.call(this);
   }
@@ -742,6 +829,9 @@ class _$SearchDoctorListImpl implements _SearchDoctorList {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (searchDoctorList != null) {
@@ -835,6 +925,9 @@ class _$GetCodeImpl implements _GetCode {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return getCode(email);
   }
@@ -852,6 +945,9 @@ class _$GetCodeImpl implements _GetCode {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return getCode?.call(email);
   }
@@ -869,6 +965,9 @@ class _$GetCodeImpl implements _GetCode {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (getCode != null) {
@@ -888,6 +987,9 @@ class _$GetCodeImpl implements _GetCode {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return getCode(this);
   }
@@ -903,6 +1005,9 @@ class _$GetCodeImpl implements _GetCode {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return getCode?.call(this);
   }
@@ -918,6 +1023,9 @@ class _$GetCodeImpl implements _GetCode {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (getCode != null) {
@@ -1011,6 +1119,9 @@ class _$DeleteTalonImpl implements _DeleteTalon {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return deleteTalon(id);
   }
@@ -1028,6 +1139,9 @@ class _$DeleteTalonImpl implements _DeleteTalon {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return deleteTalon?.call(id);
   }
@@ -1045,6 +1159,9 @@ class _$DeleteTalonImpl implements _DeleteTalon {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (deleteTalon != null) {
@@ -1064,6 +1181,9 @@ class _$DeleteTalonImpl implements _DeleteTalon {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return deleteTalon(this);
   }
@@ -1079,6 +1199,9 @@ class _$DeleteTalonImpl implements _DeleteTalon {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return deleteTalon?.call(this);
   }
@@ -1094,6 +1217,9 @@ class _$DeleteTalonImpl implements _DeleteTalon {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (deleteTalon != null) {
@@ -1188,6 +1314,9 @@ class _$CreateTalonImpl implements _CreateTalon {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return createTalon(createTalonRequest);
   }
@@ -1205,6 +1334,9 @@ class _$CreateTalonImpl implements _CreateTalon {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return createTalon?.call(createTalonRequest);
   }
@@ -1222,6 +1354,9 @@ class _$CreateTalonImpl implements _CreateTalon {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (createTalon != null) {
@@ -1241,6 +1376,9 @@ class _$CreateTalonImpl implements _CreateTalon {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return createTalon(this);
   }
@@ -1256,6 +1394,9 @@ class _$CreateTalonImpl implements _CreateTalon {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return createTalon?.call(this);
   }
@@ -1271,6 +1412,9 @@ class _$CreateTalonImpl implements _CreateTalon {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (createTalon != null) {
@@ -1398,6 +1542,9 @@ class _$GetDoctorsTimeImpl implements _GetDoctorsTime {
     required TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)
         getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
   }) {
     return getDoctorsTime(doctorId, date, isOverlay, nextPage);
   }
@@ -1415,6 +1562,9 @@ class _$GetDoctorsTimeImpl implements _GetDoctorsTime {
     TResult? Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
   }) {
     return getDoctorsTime?.call(doctorId, date, isOverlay, nextPage);
   }
@@ -1432,6 +1582,9 @@ class _$GetDoctorsTimeImpl implements _GetDoctorsTime {
     TResult Function(
             int? doctorId, String? date, bool isOverlay, bool nextPage)?
         getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
     required TResult orElse(),
   }) {
     if (getDoctorsTime != null) {
@@ -1451,6 +1604,9 @@ class _$GetDoctorsTimeImpl implements _GetDoctorsTime {
     required TResult Function(_DeleteTalon value) deleteTalon,
     required TResult Function(_CreateTalon value) createTalon,
     required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
   }) {
     return getDoctorsTime(this);
   }
@@ -1466,6 +1622,9 @@ class _$GetDoctorsTimeImpl implements _GetDoctorsTime {
     TResult? Function(_DeleteTalon value)? deleteTalon,
     TResult? Function(_CreateTalon value)? createTalon,
     TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
   }) {
     return getDoctorsTime?.call(this);
   }
@@ -1481,6 +1640,9 @@ class _$GetDoctorsTimeImpl implements _GetDoctorsTime {
     TResult Function(_DeleteTalon value)? deleteTalon,
     TResult Function(_CreateTalon value)? createTalon,
     TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
     required TResult orElse(),
   }) {
     if (getDoctorsTime != null) {
@@ -1507,6 +1669,561 @@ abstract class _GetDoctorsTime implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$GetResultNumberImplCopyWith<$Res> {
+  factory _$$GetResultNumberImplCopyWith(_$GetResultNumberImpl value,
+          $Res Function(_$GetResultNumberImpl) then) =
+      __$$GetResultNumberImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String resultNumber});
+}
+
+/// @nodoc
+class __$$GetResultNumberImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetResultNumberImpl>
+    implements _$$GetResultNumberImplCopyWith<$Res> {
+  __$$GetResultNumberImplCopyWithImpl(
+      _$GetResultNumberImpl _value, $Res Function(_$GetResultNumberImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resultNumber = null,
+  }) {
+    return _then(_$GetResultNumberImpl(
+      null == resultNumber
+          ? _value.resultNumber
+          : resultNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetResultNumberImpl implements _GetResultNumber {
+  const _$GetResultNumberImpl(this.resultNumber);
+
+  @override
+  final String resultNumber;
+
+  @override
+  String toString() {
+    return 'HomeEvent.getResultNumber(resultNumber: $resultNumber)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetResultNumberImpl &&
+            (identical(other.resultNumber, resultNumber) ||
+                other.resultNumber == resultNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, resultNumber);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetResultNumberImplCopyWith<_$GetResultNumberImpl> get copyWith =>
+      __$$GetResultNumberImplCopyWithImpl<_$GetResultNumberImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getTalonList,
+    required TResult Function(int id) getTalonDetail,
+    required TResult Function() getDoctorList,
+    required TResult Function(String word) searchDoctorList,
+    required TResult Function(String email) getCode,
+    required TResult Function(int id) deleteTalon,
+    required TResult Function(CreateTalonRequest createTalonRequest)
+        createTalon,
+    required TResult Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)
+        getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
+  }) {
+    return getResultNumber(resultNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getTalonList,
+    TResult? Function(int id)? getTalonDetail,
+    TResult? Function()? getDoctorList,
+    TResult? Function(String word)? searchDoctorList,
+    TResult? Function(String email)? getCode,
+    TResult? Function(int id)? deleteTalon,
+    TResult? Function(CreateTalonRequest createTalonRequest)? createTalon,
+    TResult? Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)?
+        getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
+  }) {
+    return getResultNumber?.call(resultNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getTalonList,
+    TResult Function(int id)? getTalonDetail,
+    TResult Function()? getDoctorList,
+    TResult Function(String word)? searchDoctorList,
+    TResult Function(String email)? getCode,
+    TResult Function(int id)? deleteTalon,
+    TResult Function(CreateTalonRequest createTalonRequest)? createTalon,
+    TResult Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)?
+        getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
+    required TResult orElse(),
+  }) {
+    if (getResultNumber != null) {
+      return getResultNumber(resultNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetTalonList value) getTalonList,
+    required TResult Function(_GetTalonDetail value) getTalonDetail,
+    required TResult Function(_GetDoctorList value) getDoctorList,
+    required TResult Function(_SearchDoctorList value) searchDoctorList,
+    required TResult Function(_GetCode value) getCode,
+    required TResult Function(_DeleteTalon value) deleteTalon,
+    required TResult Function(_CreateTalon value) createTalon,
+    required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
+  }) {
+    return getResultNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetTalonList value)? getTalonList,
+    TResult? Function(_GetTalonDetail value)? getTalonDetail,
+    TResult? Function(_GetDoctorList value)? getDoctorList,
+    TResult? Function(_SearchDoctorList value)? searchDoctorList,
+    TResult? Function(_GetCode value)? getCode,
+    TResult? Function(_DeleteTalon value)? deleteTalon,
+    TResult? Function(_CreateTalon value)? createTalon,
+    TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
+  }) {
+    return getResultNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetTalonList value)? getTalonList,
+    TResult Function(_GetTalonDetail value)? getTalonDetail,
+    TResult Function(_GetDoctorList value)? getDoctorList,
+    TResult Function(_SearchDoctorList value)? searchDoctorList,
+    TResult Function(_GetCode value)? getCode,
+    TResult Function(_DeleteTalon value)? deleteTalon,
+    TResult Function(_CreateTalon value)? createTalon,
+    TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
+    required TResult orElse(),
+  }) {
+    if (getResultNumber != null) {
+      return getResultNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetResultNumber implements HomeEvent {
+  const factory _GetResultNumber(final String resultNumber) =
+      _$GetResultNumberImpl;
+
+  String get resultNumber;
+  @JsonKey(ignore: true)
+  _$$GetResultNumberImplCopyWith<_$GetResultNumberImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetResultDataImplCopyWith<$Res> {
+  factory _$$GetResultDataImplCopyWith(
+          _$GetResultDataImpl value, $Res Function(_$GetResultDataImpl) then) =
+      __$$GetResultDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetResultDataImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetResultDataImpl>
+    implements _$$GetResultDataImplCopyWith<$Res> {
+  __$$GetResultDataImplCopyWithImpl(
+      _$GetResultDataImpl _value, $Res Function(_$GetResultDataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetResultDataImpl implements _GetResultData {
+  const _$GetResultDataImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.getResultData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetResultDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getTalonList,
+    required TResult Function(int id) getTalonDetail,
+    required TResult Function() getDoctorList,
+    required TResult Function(String word) searchDoctorList,
+    required TResult Function(String email) getCode,
+    required TResult Function(int id) deleteTalon,
+    required TResult Function(CreateTalonRequest createTalonRequest)
+        createTalon,
+    required TResult Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)
+        getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
+  }) {
+    return getResultData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getTalonList,
+    TResult? Function(int id)? getTalonDetail,
+    TResult? Function()? getDoctorList,
+    TResult? Function(String word)? searchDoctorList,
+    TResult? Function(String email)? getCode,
+    TResult? Function(int id)? deleteTalon,
+    TResult? Function(CreateTalonRequest createTalonRequest)? createTalon,
+    TResult? Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)?
+        getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
+  }) {
+    return getResultData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getTalonList,
+    TResult Function(int id)? getTalonDetail,
+    TResult Function()? getDoctorList,
+    TResult Function(String word)? searchDoctorList,
+    TResult Function(String email)? getCode,
+    TResult Function(int id)? deleteTalon,
+    TResult Function(CreateTalonRequest createTalonRequest)? createTalon,
+    TResult Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)?
+        getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
+    required TResult orElse(),
+  }) {
+    if (getResultData != null) {
+      return getResultData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetTalonList value) getTalonList,
+    required TResult Function(_GetTalonDetail value) getTalonDetail,
+    required TResult Function(_GetDoctorList value) getDoctorList,
+    required TResult Function(_SearchDoctorList value) searchDoctorList,
+    required TResult Function(_GetCode value) getCode,
+    required TResult Function(_DeleteTalon value) deleteTalon,
+    required TResult Function(_CreateTalon value) createTalon,
+    required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
+  }) {
+    return getResultData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetTalonList value)? getTalonList,
+    TResult? Function(_GetTalonDetail value)? getTalonDetail,
+    TResult? Function(_GetDoctorList value)? getDoctorList,
+    TResult? Function(_SearchDoctorList value)? searchDoctorList,
+    TResult? Function(_GetCode value)? getCode,
+    TResult? Function(_DeleteTalon value)? deleteTalon,
+    TResult? Function(_CreateTalon value)? createTalon,
+    TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
+  }) {
+    return getResultData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetTalonList value)? getTalonList,
+    TResult Function(_GetTalonDetail value)? getTalonDetail,
+    TResult Function(_GetDoctorList value)? getDoctorList,
+    TResult Function(_SearchDoctorList value)? searchDoctorList,
+    TResult Function(_GetCode value)? getCode,
+    TResult Function(_DeleteTalon value)? deleteTalon,
+    TResult Function(_CreateTalon value)? createTalon,
+    TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
+    required TResult orElse(),
+  }) {
+    if (getResultData != null) {
+      return getResultData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetResultData implements HomeEvent {
+  const factory _GetResultData() = _$GetResultDataImpl;
+}
+
+/// @nodoc
+abstract class _$$GetPDFImplCopyWith<$Res> {
+  factory _$$GetPDFImplCopyWith(
+          _$GetPDFImpl value, $Res Function(_$GetPDFImpl) then) =
+      __$$GetPDFImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? fileName});
+}
+
+/// @nodoc
+class __$$GetPDFImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetPDFImpl>
+    implements _$$GetPDFImplCopyWith<$Res> {
+  __$$GetPDFImplCopyWithImpl(
+      _$GetPDFImpl _value, $Res Function(_$GetPDFImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? fileName = freezed,
+  }) {
+    return _then(_$GetPDFImpl(
+      freezed == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetPDFImpl implements _GetPDF {
+  const _$GetPDFImpl(this.fileName);
+
+  @override
+  final String? fileName;
+
+  @override
+  String toString() {
+    return 'HomeEvent.getPDF(fileName: $fileName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetPDFImpl &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, fileName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetPDFImplCopyWith<_$GetPDFImpl> get copyWith =>
+      __$$GetPDFImplCopyWithImpl<_$GetPDFImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getTalonList,
+    required TResult Function(int id) getTalonDetail,
+    required TResult Function() getDoctorList,
+    required TResult Function(String word) searchDoctorList,
+    required TResult Function(String email) getCode,
+    required TResult Function(int id) deleteTalon,
+    required TResult Function(CreateTalonRequest createTalonRequest)
+        createTalon,
+    required TResult Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)
+        getDoctorsTime,
+    required TResult Function(String resultNumber) getResultNumber,
+    required TResult Function() getResultData,
+    required TResult Function(String? fileName) getPDF,
+  }) {
+    return getPDF(fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getTalonList,
+    TResult? Function(int id)? getTalonDetail,
+    TResult? Function()? getDoctorList,
+    TResult? Function(String word)? searchDoctorList,
+    TResult? Function(String email)? getCode,
+    TResult? Function(int id)? deleteTalon,
+    TResult? Function(CreateTalonRequest createTalonRequest)? createTalon,
+    TResult? Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)?
+        getDoctorsTime,
+    TResult? Function(String resultNumber)? getResultNumber,
+    TResult? Function()? getResultData,
+    TResult? Function(String? fileName)? getPDF,
+  }) {
+    return getPDF?.call(fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getTalonList,
+    TResult Function(int id)? getTalonDetail,
+    TResult Function()? getDoctorList,
+    TResult Function(String word)? searchDoctorList,
+    TResult Function(String email)? getCode,
+    TResult Function(int id)? deleteTalon,
+    TResult Function(CreateTalonRequest createTalonRequest)? createTalon,
+    TResult Function(
+            int? doctorId, String? date, bool isOverlay, bool nextPage)?
+        getDoctorsTime,
+    TResult Function(String resultNumber)? getResultNumber,
+    TResult Function()? getResultData,
+    TResult Function(String? fileName)? getPDF,
+    required TResult orElse(),
+  }) {
+    if (getPDF != null) {
+      return getPDF(fileName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetTalonList value) getTalonList,
+    required TResult Function(_GetTalonDetail value) getTalonDetail,
+    required TResult Function(_GetDoctorList value) getDoctorList,
+    required TResult Function(_SearchDoctorList value) searchDoctorList,
+    required TResult Function(_GetCode value) getCode,
+    required TResult Function(_DeleteTalon value) deleteTalon,
+    required TResult Function(_CreateTalon value) createTalon,
+    required TResult Function(_GetDoctorsTime value) getDoctorsTime,
+    required TResult Function(_GetResultNumber value) getResultNumber,
+    required TResult Function(_GetResultData value) getResultData,
+    required TResult Function(_GetPDF value) getPDF,
+  }) {
+    return getPDF(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetTalonList value)? getTalonList,
+    TResult? Function(_GetTalonDetail value)? getTalonDetail,
+    TResult? Function(_GetDoctorList value)? getDoctorList,
+    TResult? Function(_SearchDoctorList value)? searchDoctorList,
+    TResult? Function(_GetCode value)? getCode,
+    TResult? Function(_DeleteTalon value)? deleteTalon,
+    TResult? Function(_CreateTalon value)? createTalon,
+    TResult? Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult? Function(_GetResultNumber value)? getResultNumber,
+    TResult? Function(_GetResultData value)? getResultData,
+    TResult? Function(_GetPDF value)? getPDF,
+  }) {
+    return getPDF?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetTalonList value)? getTalonList,
+    TResult Function(_GetTalonDetail value)? getTalonDetail,
+    TResult Function(_GetDoctorList value)? getDoctorList,
+    TResult Function(_SearchDoctorList value)? searchDoctorList,
+    TResult Function(_GetCode value)? getCode,
+    TResult Function(_DeleteTalon value)? deleteTalon,
+    TResult Function(_CreateTalon value)? createTalon,
+    TResult Function(_GetDoctorsTime value)? getDoctorsTime,
+    TResult Function(_GetResultNumber value)? getResultNumber,
+    TResult Function(_GetResultData value)? getResultData,
+    TResult Function(_GetPDF value)? getPDF,
+    required TResult orElse(),
+  }) {
+    if (getPDF != null) {
+      return getPDF(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetPDF implements HomeEvent {
+  const factory _GetPDF(final String? fileName) = _$GetPDFImpl;
+
+  String? get fileName;
+  @JsonKey(ignore: true)
+  _$$GetPDFImplCopyWith<_$GetPDFImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -1514,12 +2231,18 @@ mixin _$HomeState {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1528,12 +2251,16 @@ mixin _$HomeState {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1542,12 +2269,16 @@ mixin _$HomeState {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1562,6 +2293,9 @@ mixin _$HomeState {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1575,6 +2309,9 @@ mixin _$HomeState {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1588,6 +2325,9 @@ mixin _$HomeState {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1652,12 +2392,18 @@ class _$InitialImpl implements _Initial {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return initial();
   }
@@ -1669,12 +2415,16 @@ class _$InitialImpl implements _Initial {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return initial?.call();
   }
@@ -1686,12 +2436,16 @@ class _$InitialImpl implements _Initial {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1712,6 +2466,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return initial(this);
   }
@@ -1728,6 +2485,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return initial?.call(this);
   }
@@ -1744,6 +2504,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1826,12 +2589,18 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return loading(isOverlay);
   }
@@ -1843,12 +2612,16 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return loading?.call(isOverlay);
   }
@@ -1860,12 +2633,16 @@ class _$LoadingImpl implements _Loading {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1886,6 +2663,9 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return loading(this);
   }
@@ -1902,6 +2682,9 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return loading?.call(this);
   }
@@ -1918,6 +2701,9 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2005,12 +2791,18 @@ class _$ErrorImpl implements _Error {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return error(this.error);
   }
@@ -2022,12 +2814,16 @@ class _$ErrorImpl implements _Error {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return error?.call(this.error);
   }
@@ -2039,12 +2835,16 @@ class _$ErrorImpl implements _Error {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2065,6 +2865,9 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return error(this);
   }
@@ -2081,6 +2884,9 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return error?.call(this);
   }
@@ -2097,6 +2903,9 @@ class _$ErrorImpl implements _Error {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2191,12 +3000,18 @@ class _$SuccessTalonListImpl implements _SuccessTalonList {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return successTalonList(data);
   }
@@ -2208,12 +3023,16 @@ class _$SuccessTalonListImpl implements _SuccessTalonList {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return successTalonList?.call(data);
   }
@@ -2225,12 +3044,16 @@ class _$SuccessTalonListImpl implements _SuccessTalonList {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (successTalonList != null) {
@@ -2251,6 +3074,9 @@ class _$SuccessTalonListImpl implements _SuccessTalonList {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return successTalonList(this);
   }
@@ -2267,6 +3093,9 @@ class _$SuccessTalonListImpl implements _SuccessTalonList {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return successTalonList?.call(this);
   }
@@ -2283,6 +3112,9 @@ class _$SuccessTalonListImpl implements _SuccessTalonList {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (successTalonList != null) {
@@ -2308,7 +3140,7 @@ abstract class _$$SuccessTalonImplCopyWith<$Res> {
           _$SuccessTalonImpl value, $Res Function(_$SuccessTalonImpl) then) =
       __$$SuccessTalonImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({TalonResponse data});
+  $Res call({TalonResponse data, bool afterCreate});
 }
 
 /// @nodoc
@@ -2323,12 +3155,17 @@ class __$$SuccessTalonImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? afterCreate = null,
   }) {
     return _then(_$SuccessTalonImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TalonResponse,
+      null == afterCreate
+          ? _value.afterCreate
+          : afterCreate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2336,14 +3173,16 @@ class __$$SuccessTalonImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessTalonImpl implements _SuccessTalon {
-  const _$SuccessTalonImpl(this.data);
+  const _$SuccessTalonImpl(this.data, this.afterCreate);
 
   @override
   final TalonResponse data;
+  @override
+  final bool afterCreate;
 
   @override
   String toString() {
-    return 'HomeState.successTalon(data: $data)';
+    return 'HomeState.successTalon(data: $data, afterCreate: $afterCreate)';
   }
 
   @override
@@ -2351,11 +3190,13 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessTalonImpl &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.afterCreate, afterCreate) ||
+                other.afterCreate == afterCreate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, afterCreate);
 
   @JsonKey(ignore: true)
   @override
@@ -2370,14 +3211,20 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
-    return successTalon(data);
+    return successTalon(data, afterCreate);
   }
 
   @override
@@ -2387,14 +3234,18 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
-    return successTalon?.call(data);
+    return successTalon?.call(data, afterCreate);
   }
 
   @override
@@ -2404,16 +3255,20 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (successTalon != null) {
-      return successTalon(data);
+      return successTalon(data, afterCreate);
     }
     return orElse();
   }
@@ -2430,6 +3285,9 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return successTalon(this);
   }
@@ -2446,6 +3304,9 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return successTalon?.call(this);
   }
@@ -2462,6 +3323,9 @@ class _$SuccessTalonImpl implements _SuccessTalon {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (successTalon != null) {
@@ -2472,9 +3336,11 @@ class _$SuccessTalonImpl implements _SuccessTalon {
 }
 
 abstract class _SuccessTalon implements HomeState {
-  const factory _SuccessTalon(final TalonResponse data) = _$SuccessTalonImpl;
+  const factory _SuccessTalon(
+      final TalonResponse data, final bool afterCreate) = _$SuccessTalonImpl;
 
   TalonResponse get data;
+  bool get afterCreate;
   @JsonKey(ignore: true)
   _$$SuccessTalonImplCopyWith<_$SuccessTalonImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2556,12 +3422,18 @@ class _$SuccessDoctorListImpl implements _SuccessDoctorList {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return successDoctorList(data);
   }
@@ -2573,12 +3445,16 @@ class _$SuccessDoctorListImpl implements _SuccessDoctorList {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return successDoctorList?.call(data);
   }
@@ -2590,12 +3466,16 @@ class _$SuccessDoctorListImpl implements _SuccessDoctorList {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (successDoctorList != null) {
@@ -2616,6 +3496,9 @@ class _$SuccessDoctorListImpl implements _SuccessDoctorList {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return successDoctorList(this);
   }
@@ -2632,6 +3515,9 @@ class _$SuccessDoctorListImpl implements _SuccessDoctorList {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return successDoctorList?.call(this);
   }
@@ -2648,6 +3534,9 @@ class _$SuccessDoctorListImpl implements _SuccessDoctorList {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (successDoctorList != null) {
@@ -2745,12 +3634,18 @@ class _$SuccessDoctorsTimeImpl implements _SuccessDoctorsTime {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return successDoctorsTime(data, nextPage);
   }
@@ -2762,12 +3657,16 @@ class _$SuccessDoctorsTimeImpl implements _SuccessDoctorsTime {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return successDoctorsTime?.call(data, nextPage);
   }
@@ -2779,12 +3678,16 @@ class _$SuccessDoctorsTimeImpl implements _SuccessDoctorsTime {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (successDoctorsTime != null) {
@@ -2805,6 +3708,9 @@ class _$SuccessDoctorsTimeImpl implements _SuccessDoctorsTime {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return successDoctorsTime(this);
   }
@@ -2821,6 +3727,9 @@ class _$SuccessDoctorsTimeImpl implements _SuccessDoctorsTime {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return successDoctorsTime?.call(this);
   }
@@ -2837,6 +3746,9 @@ class _$SuccessDoctorsTimeImpl implements _SuccessDoctorsTime {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (successDoctorsTime != null) {
@@ -2926,12 +3838,18 @@ class _$SuccessCodeImpl implements _SuccessCode {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return successCode(patient);
   }
@@ -2943,12 +3861,16 @@ class _$SuccessCodeImpl implements _SuccessCode {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return successCode?.call(patient);
   }
@@ -2960,12 +3882,16 @@ class _$SuccessCodeImpl implements _SuccessCode {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (successCode != null) {
@@ -2986,6 +3912,9 @@ class _$SuccessCodeImpl implements _SuccessCode {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return successCode(this);
   }
@@ -3002,6 +3931,9 @@ class _$SuccessCodeImpl implements _SuccessCode {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return successCode?.call(this);
   }
@@ -3018,6 +3950,9 @@ class _$SuccessCodeImpl implements _SuccessCode {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (successCode != null) {
@@ -3079,12 +4014,18 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
     required TResult Function(bool? isOverlay) loading,
     required TResult Function(dynamic error) error,
     required TResult Function(List<TalonListResponse> data) successTalonList,
-    required TResult Function(TalonResponse data) successTalon,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
     required TResult Function(List<DoctorsListResponse> data) successDoctorList,
     required TResult Function(DoctorsTimeResponse data, bool nextPage)
         successDoctorsTime,
     required TResult Function(PatientInfoResponse patient) successCode,
     required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
   }) {
     return successDeleteTalon();
   }
@@ -3096,12 +4037,16 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
     TResult? Function(bool? isOverlay)? loading,
     TResult? Function(dynamic error)? error,
     TResult? Function(List<TalonListResponse> data)? successTalonList,
-    TResult? Function(TalonResponse data)? successTalon,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult? Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult? Function(PatientInfoResponse patient)? successCode,
     TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
   }) {
     return successDeleteTalon?.call();
   }
@@ -3113,12 +4058,16 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
     TResult Function(bool? isOverlay)? loading,
     TResult Function(dynamic error)? error,
     TResult Function(List<TalonListResponse> data)? successTalonList,
-    TResult Function(TalonResponse data)? successTalon,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
     TResult Function(List<DoctorsListResponse> data)? successDoctorList,
     TResult Function(DoctorsTimeResponse data, bool nextPage)?
         successDoctorsTime,
     TResult Function(PatientInfoResponse patient)? successCode,
     TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
     required TResult orElse(),
   }) {
     if (successDeleteTalon != null) {
@@ -3139,6 +4088,9 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
     required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
     required TResult Function(_SuccessCode value) successCode,
     required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
   }) {
     return successDeleteTalon(this);
   }
@@ -3155,6 +4107,9 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
     TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult? Function(_SuccessCode value)? successCode,
     TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
   }) {
     return successDeleteTalon?.call(this);
   }
@@ -3171,6 +4126,9 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
     TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
     TResult Function(_SuccessCode value)? successCode,
     TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
     required TResult orElse(),
   }) {
     if (successDeleteTalon != null) {
@@ -3182,4 +4140,633 @@ class _$SuccessDeleteTalonImpl implements _SuccessDeleteTalon {
 
 abstract class _SuccessDeleteTalon implements HomeState {
   const factory _SuccessDeleteTalon() = _$SuccessDeleteTalonImpl;
+}
+
+/// @nodoc
+abstract class _$$SuccessResultNumberImplCopyWith<$Res> {
+  factory _$$SuccessResultNumberImplCopyWith(_$SuccessResultNumberImpl value,
+          $Res Function(_$SuccessResultNumberImpl) then) =
+      __$$SuccessResultNumberImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ResultNumberResponse resultNumber});
+
+  $ResultNumberResponseCopyWith<$Res> get resultNumber;
+}
+
+/// @nodoc
+class __$$SuccessResultNumberImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$SuccessResultNumberImpl>
+    implements _$$SuccessResultNumberImplCopyWith<$Res> {
+  __$$SuccessResultNumberImplCopyWithImpl(_$SuccessResultNumberImpl _value,
+      $Res Function(_$SuccessResultNumberImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resultNumber = null,
+  }) {
+    return _then(_$SuccessResultNumberImpl(
+      null == resultNumber
+          ? _value.resultNumber
+          : resultNumber // ignore: cast_nullable_to_non_nullable
+              as ResultNumberResponse,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ResultNumberResponseCopyWith<$Res> get resultNumber {
+    return $ResultNumberResponseCopyWith<$Res>(_value.resultNumber, (value) {
+      return _then(_value.copyWith(resultNumber: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SuccessResultNumberImpl implements _SuccessResultNumber {
+  const _$SuccessResultNumberImpl(this.resultNumber);
+
+  @override
+  final ResultNumberResponse resultNumber;
+
+  @override
+  String toString() {
+    return 'HomeState.successResultNumber(resultNumber: $resultNumber)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessResultNumberImpl &&
+            (identical(other.resultNumber, resultNumber) ||
+                other.resultNumber == resultNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, resultNumber);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessResultNumberImplCopyWith<_$SuccessResultNumberImpl> get copyWith =>
+      __$$SuccessResultNumberImplCopyWithImpl<_$SuccessResultNumberImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool? isOverlay) loading,
+    required TResult Function(dynamic error) error,
+    required TResult Function(List<TalonListResponse> data) successTalonList,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
+    required TResult Function(List<DoctorsListResponse> data) successDoctorList,
+    required TResult Function(DoctorsTimeResponse data, bool nextPage)
+        successDoctorsTime,
+    required TResult Function(PatientInfoResponse patient) successCode,
+    required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
+  }) {
+    return successResultNumber(resultNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool? isOverlay)? loading,
+    TResult? Function(dynamic error)? error,
+    TResult? Function(List<TalonListResponse> data)? successTalonList,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
+    TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
+    TResult? Function(DoctorsTimeResponse data, bool nextPage)?
+        successDoctorsTime,
+    TResult? Function(PatientInfoResponse patient)? successCode,
+    TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
+  }) {
+    return successResultNumber?.call(resultNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool? isOverlay)? loading,
+    TResult Function(dynamic error)? error,
+    TResult Function(List<TalonListResponse> data)? successTalonList,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
+    TResult Function(List<DoctorsListResponse> data)? successDoctorList,
+    TResult Function(DoctorsTimeResponse data, bool nextPage)?
+        successDoctorsTime,
+    TResult Function(PatientInfoResponse patient)? successCode,
+    TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
+    required TResult orElse(),
+  }) {
+    if (successResultNumber != null) {
+      return successResultNumber(resultNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SuccessTalonList value) successTalonList,
+    required TResult Function(_SuccessTalon value) successTalon,
+    required TResult Function(_SuccessDoctorList value) successDoctorList,
+    required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
+    required TResult Function(_SuccessCode value) successCode,
+    required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
+  }) {
+    return successResultNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SuccessTalonList value)? successTalonList,
+    TResult? Function(_SuccessTalon value)? successTalon,
+    TResult? Function(_SuccessDoctorList value)? successDoctorList,
+    TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
+    TResult? Function(_SuccessCode value)? successCode,
+    TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
+  }) {
+    return successResultNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_SuccessTalonList value)? successTalonList,
+    TResult Function(_SuccessTalon value)? successTalon,
+    TResult Function(_SuccessDoctorList value)? successDoctorList,
+    TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
+    TResult Function(_SuccessCode value)? successCode,
+    TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
+    required TResult orElse(),
+  }) {
+    if (successResultNumber != null) {
+      return successResultNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessResultNumber implements HomeState {
+  const factory _SuccessResultNumber(final ResultNumberResponse resultNumber) =
+      _$SuccessResultNumberImpl;
+
+  ResultNumberResponse get resultNumber;
+  @JsonKey(ignore: true)
+  _$$SuccessResultNumberImplCopyWith<_$SuccessResultNumberImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessgetResultDataImplCopyWith<$Res> {
+  factory _$$SuccessgetResultDataImplCopyWith(_$SuccessgetResultDataImpl value,
+          $Res Function(_$SuccessgetResultDataImpl) then) =
+      __$$SuccessgetResultDataImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<ResultDataResponse>? resultData});
+}
+
+/// @nodoc
+class __$$SuccessgetResultDataImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$SuccessgetResultDataImpl>
+    implements _$$SuccessgetResultDataImplCopyWith<$Res> {
+  __$$SuccessgetResultDataImplCopyWithImpl(_$SuccessgetResultDataImpl _value,
+      $Res Function(_$SuccessgetResultDataImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resultData = freezed,
+  }) {
+    return _then(_$SuccessgetResultDataImpl(
+      freezed == resultData
+          ? _value._resultData
+          : resultData // ignore: cast_nullable_to_non_nullable
+              as List<ResultDataResponse>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessgetResultDataImpl implements _SuccessgetResultData {
+  const _$SuccessgetResultDataImpl(final List<ResultDataResponse>? resultData)
+      : _resultData = resultData;
+
+  final List<ResultDataResponse>? _resultData;
+  @override
+  List<ResultDataResponse>? get resultData {
+    final value = _resultData;
+    if (value == null) return null;
+    if (_resultData is EqualUnmodifiableListView) return _resultData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'HomeState.successgetResultData(resultData: $resultData)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessgetResultDataImpl &&
+            const DeepCollectionEquality()
+                .equals(other._resultData, _resultData));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_resultData));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessgetResultDataImplCopyWith<_$SuccessgetResultDataImpl>
+      get copyWith =>
+          __$$SuccessgetResultDataImplCopyWithImpl<_$SuccessgetResultDataImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool? isOverlay) loading,
+    required TResult Function(dynamic error) error,
+    required TResult Function(List<TalonListResponse> data) successTalonList,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
+    required TResult Function(List<DoctorsListResponse> data) successDoctorList,
+    required TResult Function(DoctorsTimeResponse data, bool nextPage)
+        successDoctorsTime,
+    required TResult Function(PatientInfoResponse patient) successCode,
+    required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
+  }) {
+    return successgetResultData(resultData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool? isOverlay)? loading,
+    TResult? Function(dynamic error)? error,
+    TResult? Function(List<TalonListResponse> data)? successTalonList,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
+    TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
+    TResult? Function(DoctorsTimeResponse data, bool nextPage)?
+        successDoctorsTime,
+    TResult? Function(PatientInfoResponse patient)? successCode,
+    TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
+  }) {
+    return successgetResultData?.call(resultData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool? isOverlay)? loading,
+    TResult Function(dynamic error)? error,
+    TResult Function(List<TalonListResponse> data)? successTalonList,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
+    TResult Function(List<DoctorsListResponse> data)? successDoctorList,
+    TResult Function(DoctorsTimeResponse data, bool nextPage)?
+        successDoctorsTime,
+    TResult Function(PatientInfoResponse patient)? successCode,
+    TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
+    required TResult orElse(),
+  }) {
+    if (successgetResultData != null) {
+      return successgetResultData(resultData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SuccessTalonList value) successTalonList,
+    required TResult Function(_SuccessTalon value) successTalon,
+    required TResult Function(_SuccessDoctorList value) successDoctorList,
+    required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
+    required TResult Function(_SuccessCode value) successCode,
+    required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
+  }) {
+    return successgetResultData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SuccessTalonList value)? successTalonList,
+    TResult? Function(_SuccessTalon value)? successTalon,
+    TResult? Function(_SuccessDoctorList value)? successDoctorList,
+    TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
+    TResult? Function(_SuccessCode value)? successCode,
+    TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
+  }) {
+    return successgetResultData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_SuccessTalonList value)? successTalonList,
+    TResult Function(_SuccessTalon value)? successTalon,
+    TResult Function(_SuccessDoctorList value)? successDoctorList,
+    TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
+    TResult Function(_SuccessCode value)? successCode,
+    TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
+    required TResult orElse(),
+  }) {
+    if (successgetResultData != null) {
+      return successgetResultData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessgetResultData implements HomeState {
+  const factory _SuccessgetResultData(
+      final List<ResultDataResponse>? resultData) = _$SuccessgetResultDataImpl;
+
+  List<ResultDataResponse>? get resultData;
+  @JsonKey(ignore: true)
+  _$$SuccessgetResultDataImplCopyWith<_$SuccessgetResultDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessPDFImplCopyWith<$Res> {
+  factory _$$SuccessPDFImplCopyWith(
+          _$SuccessPDFImpl value, $Res Function(_$SuccessPDFImpl) then) =
+      __$$SuccessPDFImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? pdf});
+}
+
+/// @nodoc
+class __$$SuccessPDFImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$SuccessPDFImpl>
+    implements _$$SuccessPDFImplCopyWith<$Res> {
+  __$$SuccessPDFImplCopyWithImpl(
+      _$SuccessPDFImpl _value, $Res Function(_$SuccessPDFImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pdf = freezed,
+  }) {
+    return _then(_$SuccessPDFImpl(
+      freezed == pdf
+          ? _value.pdf
+          : pdf // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessPDFImpl implements _SuccessPDF {
+  const _$SuccessPDFImpl(this.pdf);
+
+  @override
+  final String? pdf;
+
+  @override
+  String toString() {
+    return 'HomeState.successPDF(pdf: $pdf)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessPDFImpl &&
+            (identical(other.pdf, pdf) || other.pdf == pdf));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pdf);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessPDFImplCopyWith<_$SuccessPDFImpl> get copyWith =>
+      __$$SuccessPDFImplCopyWithImpl<_$SuccessPDFImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool? isOverlay) loading,
+    required TResult Function(dynamic error) error,
+    required TResult Function(List<TalonListResponse> data) successTalonList,
+    required TResult Function(TalonResponse data, bool afterCreate)
+        successTalon,
+    required TResult Function(List<DoctorsListResponse> data) successDoctorList,
+    required TResult Function(DoctorsTimeResponse data, bool nextPage)
+        successDoctorsTime,
+    required TResult Function(PatientInfoResponse patient) successCode,
+    required TResult Function() successDeleteTalon,
+    required TResult Function(ResultNumberResponse resultNumber)
+        successResultNumber,
+    required TResult Function(List<ResultDataResponse>? resultData)
+        successgetResultData,
+    required TResult Function(String? pdf) successPDF,
+  }) {
+    return successPDF(pdf);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool? isOverlay)? loading,
+    TResult? Function(dynamic error)? error,
+    TResult? Function(List<TalonListResponse> data)? successTalonList,
+    TResult? Function(TalonResponse data, bool afterCreate)? successTalon,
+    TResult? Function(List<DoctorsListResponse> data)? successDoctorList,
+    TResult? Function(DoctorsTimeResponse data, bool nextPage)?
+        successDoctorsTime,
+    TResult? Function(PatientInfoResponse patient)? successCode,
+    TResult? Function()? successDeleteTalon,
+    TResult? Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult? Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult? Function(String? pdf)? successPDF,
+  }) {
+    return successPDF?.call(pdf);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool? isOverlay)? loading,
+    TResult Function(dynamic error)? error,
+    TResult Function(List<TalonListResponse> data)? successTalonList,
+    TResult Function(TalonResponse data, bool afterCreate)? successTalon,
+    TResult Function(List<DoctorsListResponse> data)? successDoctorList,
+    TResult Function(DoctorsTimeResponse data, bool nextPage)?
+        successDoctorsTime,
+    TResult Function(PatientInfoResponse patient)? successCode,
+    TResult Function()? successDeleteTalon,
+    TResult Function(ResultNumberResponse resultNumber)? successResultNumber,
+    TResult Function(List<ResultDataResponse>? resultData)?
+        successgetResultData,
+    TResult Function(String? pdf)? successPDF,
+    required TResult orElse(),
+  }) {
+    if (successPDF != null) {
+      return successPDF(pdf);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SuccessTalonList value) successTalonList,
+    required TResult Function(_SuccessTalon value) successTalon,
+    required TResult Function(_SuccessDoctorList value) successDoctorList,
+    required TResult Function(_SuccessDoctorsTime value) successDoctorsTime,
+    required TResult Function(_SuccessCode value) successCode,
+    required TResult Function(_SuccessDeleteTalon value) successDeleteTalon,
+    required TResult Function(_SuccessResultNumber value) successResultNumber,
+    required TResult Function(_SuccessgetResultData value) successgetResultData,
+    required TResult Function(_SuccessPDF value) successPDF,
+  }) {
+    return successPDF(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SuccessTalonList value)? successTalonList,
+    TResult? Function(_SuccessTalon value)? successTalon,
+    TResult? Function(_SuccessDoctorList value)? successDoctorList,
+    TResult? Function(_SuccessDoctorsTime value)? successDoctorsTime,
+    TResult? Function(_SuccessCode value)? successCode,
+    TResult? Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult? Function(_SuccessResultNumber value)? successResultNumber,
+    TResult? Function(_SuccessgetResultData value)? successgetResultData,
+    TResult? Function(_SuccessPDF value)? successPDF,
+  }) {
+    return successPDF?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_SuccessTalonList value)? successTalonList,
+    TResult Function(_SuccessTalon value)? successTalon,
+    TResult Function(_SuccessDoctorList value)? successDoctorList,
+    TResult Function(_SuccessDoctorsTime value)? successDoctorsTime,
+    TResult Function(_SuccessCode value)? successCode,
+    TResult Function(_SuccessDeleteTalon value)? successDeleteTalon,
+    TResult Function(_SuccessResultNumber value)? successResultNumber,
+    TResult Function(_SuccessgetResultData value)? successgetResultData,
+    TResult Function(_SuccessPDF value)? successPDF,
+    required TResult orElse(),
+  }) {
+    if (successPDF != null) {
+      return successPDF(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessPDF implements HomeState {
+  const factory _SuccessPDF(final String? pdf) = _$SuccessPDFImpl;
+
+  String? get pdf;
+  @JsonKey(ignore: true)
+  _$$SuccessPDFImplCopyWith<_$SuccessPDFImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,13 +1,10 @@
 import 'dart:io';
 
-import 'package:path_provider/path_provider.dart';
+import 'package:clinic_tendik/core/helpers/storage_helper.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
+import 'package:path_provider/path_provider.dart';
 
-//TODO : baseurl
-class Utils {
-  /* get memory pdf */
-
+class PdfHelper {
   static Future<String?> downloadPdf({
     required String currentUrl,
     required String pdfPathName,
@@ -17,25 +14,21 @@ class Utils {
     ResponseType? responseType,
     bool otherUrl = false,
   }) async {
-    // final token = await ApiHelper().loadTokens();
+    var lang = StorageHelper.readData('lang');
+    var token = StorageHelper.readData('token');
+
     final dio = Dio();
 
-    dio.options
-      // ..headers = {'Authorization': 'Bearer ${token.authToken}'}
-      ..connectTimeout = const Duration(milliseconds: 55000)
-      ..receiveTimeout = const Duration(milliseconds: 55000)
-      ..validateStatus = (status) => status != null && status == 200;
+    dio.options.headers = {
+      'Authorization': 'Bearer $token',
+      'accept-language': lang,
+    };
 
     dio.interceptors.add(
       LogInterceptor(
         request: true,
         requestBody: true,
         responseBody: true,
-        logPrint: (object) {
-          if (kDebugMode) {
-            print(object.toString());
-          }
-        },
       ),
     );
     final temp = await getTemporaryDirectory();
@@ -61,7 +54,7 @@ class Utils {
     } else {
       await dio
           .download(
-        currentUrl,
+        'http://18.197.23.153/api/$currentUrl',
         file.path,
         queryParameters: queryParameters,
         data: formData,

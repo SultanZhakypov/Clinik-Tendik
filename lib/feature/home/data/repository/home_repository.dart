@@ -1,10 +1,13 @@
 import 'package:clinic_tendik/core/config/dio/dio_generator.dart';
+import 'package:clinic_tendik/core/helpers/pdf_helper.dart';
 import 'package:clinic_tendik/feature/home/data/models/create_talon/create_talon_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctors_list/doctors_list_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctors_time/doctors_time_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/patient_info/patient_info_response.dart';
+import 'package:clinic_tendik/feature/home/data/models/pdf_analyze/pdf_analyze.dart';
 import 'package:clinic_tendik/feature/home/data/models/receive_code/receive_code_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/talon_list_response/talon_list_response.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class HomeRepository {
@@ -19,6 +22,9 @@ abstract class HomeRepository {
   Future<void> deleteTalon(int id);
   Future<TalonResponse> createTalon(CreateTalonRequest createTalonRequest);
   Future<PatientInfoResponse> getPatientInfo();
+  Future<ResultNumberResponse> getResultNumber(String resultNumber);
+  Future<List<ResultDataResponse>?> getResultData();
+  Future<String?> getPDF(String? fileName);
 }
 
 @Singleton(as: HomeRepository)
@@ -33,6 +39,8 @@ class HomeRepositoryImpl implements HomeRepository {
   static const _getCode = 'appointments/received';
   static const _createTalon = 'appointments/createOnlineAppointments';
   static const _getPatientInfo = 'patients/profile';
+  static const _resultsData = 'results/result-data';
+  static const _results = 'results';
 
   @override
   Future<List<TalonListResponse>> getTalonList() async {
@@ -81,9 +89,11 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<void> deleteTalon(int id) async {
-    await _dioGenerator.dio.post(_deleteTalon, queryParameters: {
-      'appointmentId': id,
-    });
+    await _dioGenerator.dio.post(_deleteTalon,
+        options: Options(contentType: 'application/json'),
+        queryParameters: {
+          'appointmentId': id,
+        });
   }
 
   @override
@@ -100,5 +110,30 @@ class HomeRepositoryImpl implements HomeRepository {
     final response = await _dioGenerator.dio.get(_getPatientInfo);
 
     return PatientInfoResponse.fromJson(response.data);
+  }
+
+  @override
+  Future<List<ResultDataResponse>?> getResultData() async {
+    final response = await _dioGenerator.dio.get(_resultsData);
+
+    final result = response.data;
+    return (result as List).map((v) => ResultDataResponse.fromJson(v)).toList();
+  }
+
+  @override
+  Future<ResultNumberResponse> getResultNumber(String resultNumber) async {
+    final response = await _dioGenerator.dio
+        .get(_results, queryParameters: {"resultNumber": resultNumber});
+
+    return ResultNumberResponse.fromJson(response.data);
+  }
+
+  @override
+  Future<String?> getPDF(String? fileName) async {
+    return await PdfHelper.downloadPdf(
+      currentUrl: 'files',
+      pdfPathName: '${fileName}talon.pdf',
+      queryParameters: {'fileName': fileName},
+    );
   }
 }

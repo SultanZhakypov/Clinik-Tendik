@@ -4,7 +4,9 @@ import 'package:clinic_tendik/core/components/text_fields/custom_textfield.dart'
 import 'package:clinic_tendik/core/constants/app_radius.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctors_list/doctors_list_response.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
+import 'package:clinic_tendik/generated/locale_keys.g.dart';
 import 'package:clinic_tendik/theme/app_colors.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,11 +63,12 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Выбор специалиста', style: TextStyle(fontSize: 16)),
+          Text(LocaleKeys.choose_specialist.tr(),
+              style: const TextStyle(fontSize: 16)),
           Padding(
             padding: const EdgeInsets.only(top: 8, bottom: 16),
             child: AppTextField(
-              hintText: 'Поиск по ФИО',
+              hintText: LocaleKeys.search_fio.tr(),
               controller: _searchController,
               onChanged: (v) {
                 context.read<HomeBloc>().add(
@@ -88,27 +91,31 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
                 ),
                 successDoctorList: (data) {
                   return data.isEmpty
-                      ? const Expanded(
+                      ? Expanded(
                           child: Center(
-                            child: Text('Не найдено'),
+                            child: Text(LocaleKeys.is_empty.tr()),
                           ),
                         )
                       : Expanded(
-                          child: Stack(
-                            alignment: Alignment.bottomCenter,
+                          child: Column(
                             children: [
-                              ListView.separated(
-                                padding: const EdgeInsets.only(top: 18),
-                                itemCount: data.length,
-                                separatorBuilder: (context, index) =>
-                                    const SizedBox(height: 12),
-                                itemBuilder: (context, index) =>
-                                    _SpecialistItem(
-                                  data: data[index],
-                                  isSelected: _isSelectedIndex == index,
-                                  onTap: () => _onTap(index, data: data[index]),
+                              SizedBox(
+                                height: MediaQuery.sizeOf(context).height * 0.6,
+                                child: ListView.separated(
+                                  padding: const EdgeInsets.only(top: 18),
+                                  itemCount: data.length,
+                                  separatorBuilder: (context, index) =>
+                                      const SizedBox(height: 12),
+                                  itemBuilder: (context, index) =>
+                                      _SpecialistItem(
+                                    data: data[index],
+                                    isSelected: _isSelectedIndex == index,
+                                    onTap: () =>
+                                        _onTap(index, data: data[index]),
+                                  ),
                                 ),
                               ),
+                              const Spacer(),
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 16),
                                 child: AppButton(
@@ -121,7 +128,7 @@ class _ChoiceSpecialistPageViewState extends State<ChoiceSpecialistPageView> {
                                             curve: Curves.easeIn,
                                           );
                                         },
-                                  child: const Text('Далее'),
+                                  child: Text(LocaleKeys.dalee_button.tr()),
                                 ),
                               ),
                             ],

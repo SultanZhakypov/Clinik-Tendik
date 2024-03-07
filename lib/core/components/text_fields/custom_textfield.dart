@@ -1,3 +1,5 @@
+import 'package:clinic_tendik/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -53,71 +55,74 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     if (widget.isPassword) {
-      return ValueListenableBuilder(
-        valueListenable: _passwordVisible,
-        builder: (_, __, child) {
-          return TextFormField(
-            onTapOutside: (event) {
-              WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
-            },
-            maxLength: widget.maxLength,
-            inputFormatters: widget.inputFortmatters,
-            controller: widget.controller,
-            keyboardType: widget.keyboardType,
-            validator: widget.validator ??
-                (v) {
-                  if (widget.isRequired) {
-                    if (v?.isEmpty == true) {
-                      return 'Обязательное поле';
+      return Theme(
+        data: Theme.of(context),
+        child: ValueListenableBuilder(
+          valueListenable: _passwordVisible,
+          builder: (_, __, child) {
+            return TextFormField(
+              onTapOutside: (event) {
+                WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
+              },
+              maxLength: widget.maxLength,
+              inputFormatters: widget.inputFortmatters,
+              controller: widget.controller,
+              keyboardType: widget.keyboardType,
+              validator: widget.validator ??
+                  (v) {
+                    if (widget.isRequired) {
+                      if (v?.isEmpty == true) {
+                        return LocaleKeys.required_param.tr();
+                      }
                     }
-                  }
 
-                  return null;
-                },
-            onChanged: widget.onChanged,
-            focusNode: widget.focusNode,
-            obscureText: _passwordVisible.value,
-            autofocus: widget.autoFocus,
-            decoration: InputDecoration(
-              suffix: InkWell(
-                onTap: () {
-                  _passwordVisible.value = !_passwordVisible.value;
-                },
-                child: Icon(
-                  _passwordVisible.value
-                      ? Icons.visibility
-                      : Icons.visibility_off,
+                    return null;
+                  },
+              onChanged: widget.onChanged,
+              focusNode: widget.focusNode,
+              obscureText: _passwordVisible.value,
+              autofocus: widget.autoFocus,
+              decoration: InputDecoration(
+                suffix: InkWell(
+                  onTap: () {
+                    _passwordVisible.value = !_passwordVisible.value;
+                  },
+                  child: Icon(
+                    _passwordVisible.value
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                  ),
+                ),
+                counterText: '',
+                labelStyle: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                ),
+                labelText: widget.labelText,
+                prefix: widget.prefix,
+                prefixText: widget.prefixText,
+                contentPadding: const EdgeInsets.all(16),
+                hintText: widget.hintText,
+                suffixIcon: widget.suffixIcon,
+                prefixIcon: widget.prefixIcon,
+                filled: true,
+                focusedErrorBorder: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: _kBorderRadius,
+                ),
+                errorBorder: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: _kBorderRadius,
+                ),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: _kBorderRadius,
                 ),
               ),
-              counterText: '',
-              labelStyle: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-              labelText: widget.labelText,
-              prefix: widget.prefix,
-              prefixText: widget.prefixText,
-              contentPadding: const EdgeInsets.all(16),
-              hintText: widget.hintText,
-              suffixIcon: widget.suffixIcon,
-              prefixIcon: widget.prefixIcon,
-              filled: true,
-              focusedErrorBorder: const OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: _kBorderRadius,
-              ),
-              errorBorder: const OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: _kBorderRadius,
-              ),
-              border: const OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: _kBorderRadius,
-              ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       );
     } else {
       return TextFormField(
@@ -132,7 +137,7 @@ class _AppTextFieldState extends State<AppTextField> {
             (v) {
               if (widget.isRequired) {
                 if (v?.isEmpty == true) {
-                  return 'Обязательное поле';
+                  return LocaleKeys.required_param.tr();
                 }
               }
               return null;

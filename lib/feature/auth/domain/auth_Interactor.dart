@@ -13,7 +13,6 @@ class AuthInteractor {
     final result = await _repository.signIn(authRequest);
 
     StorageHelper.saveData('token', result.token);
-    StorageHelper.saveData('email', result.email);
     StorageHelper.saveData('phoneNumber', result.phoneNumber);
     StorageHelper.saveData('fullName', result.fullName);
 
@@ -24,7 +23,6 @@ class AuthInteractor {
     final result = await _repository.signUp(registerRequest);
 
     StorageHelper.saveData('token', result.token);
-    StorageHelper.saveData('email', result.email);
     StorageHelper.saveData('phoneNumber', result.phoneNumber);
     StorageHelper.saveData('fullName', result.fullName);
 

@@ -8,21 +8,23 @@ class CreateTalonRequest {
   final String? dateOfVisiting;
   final String? timeOfVisiting;
   final String? departmentName;
-  final String? userFullName;
-  final String? userPhoneNumber;
-  final String? userEmail;
+  final String? firstName;
+  final String? lastName;
+  final String? middleName;
+  final String? phoneNumber;
+
+  factory CreateTalonRequest.fromJson(Map<String, dynamic> json) =>
+      _$CreateTalonRequestFromJson(json);
 
   CreateTalonRequest({
     this.doctorId,
+    this.middleName,
     this.dateOfVisiting,
     this.timeOfVisiting,
     this.departmentName,
-    this.userFullName,
-    this.userPhoneNumber,
-    this.userEmail,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
   });
-  factory CreateTalonRequest.fromJson(Map<String, dynamic> json) =>
-      _$CreateTalonRequestFromJson(json);
   Map<String, dynamic> toJson() => _$CreateTalonRequestToJson(this);
 }
-

@@ -26,10 +26,10 @@ class AuthResponse {
 @JsonSerializable()
 class AuthRequest {
   final String? password;
-  final String? email;
+  final String? phoneNumber;
 
   AuthRequest({
-    this.email,
+    this.phoneNumber,
     this.password,
   });
   factory AuthRequest.fromJson(Map<String, dynamic> json) =>

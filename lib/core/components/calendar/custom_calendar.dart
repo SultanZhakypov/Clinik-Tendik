@@ -22,6 +22,7 @@ class CustomCalendar extends StatelessWidget {
             color: AppColors.white,
           ),
           child: TableCalendar(
+            locale: 'ru_RU',
             calendarStyle: const CalendarStyle(
               selectedDecoration: BoxDecoration(
                 color: AppColors.green,

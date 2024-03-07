@@ -5,6 +5,8 @@ import 'package:clinic_tendik/core/config/dio/app_exception.dart';
 import 'package:clinic_tendik/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:clinic_tendik/feature/home/presentation/widgets/choice_date_page_view.dart';
 import 'package:clinic_tendik/feature/home/presentation/widgets/choise_specialist_page_view.dart';
+import 'package:clinic_tendik/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -37,7 +39,7 @@ class _OnlineDoctorPageState extends State<OnlineDoctorPage> {
 
   void _onPop() {
     if (_pageController.page == _pageController.initialPage) {
-      Navigator.of(context).pop();
+      context.router.navigate(const TalonesAndRegisterPageRoute());
     } else {
       _pageController.previousPage(
         duration: _durationPage,
@@ -60,8 +62,11 @@ class _OnlineDoctorPageState extends State<OnlineDoctorPage> {
             LoadingOverlay.removeLoadingOverlay();
             ExceptionWorker.processException(context, error: error);
           },
-          successTalon: (data) {
-            context.router.push(TalonPageRoute(data: data));
+          successTalon: (data, afterCreate) {
+            if (afterCreate) {
+              LoadingOverlay.removeLoadingOverlay();
+              context.router.push(TalonPageRoute(data: data));
+            }
           },
           successDoctorsTime: (data, nextpage) {
             LoadingOverlay.removeLoadingOverlay();
@@ -74,18 +79,19 @@ class _OnlineDoctorPageState extends State<OnlineDoctorPage> {
           },
         );
       },
-      child: WillPopScope(
-        onWillPop: () async {
-          _onPop();
-          return false;
-        },
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              'Онлайн запись к врачу',
-            ),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          title: Text(
+            LocaleKeys.online_app_doctor.tr(),
           ),
-          body: SafeArea(
+        ),
+        body: WillPopScope(
+          onWillPop: () async {
+            _onPop();
+            return false;
+          },
+          child: SafeArea(
             child: Column(
               children: [
                 Padding(

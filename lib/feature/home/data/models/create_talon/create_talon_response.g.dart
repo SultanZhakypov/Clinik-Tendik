@@ -9,12 +9,13 @@ part of 'create_talon_response.dart';
 CreateTalonRequest _$CreateTalonRequestFromJson(Map<String, dynamic> json) =>
     CreateTalonRequest(
       doctorId: json['doctorId'] as int?,
+      middleName: json['middleName'] as String?,
       dateOfVisiting: json['dateOfVisiting'] as String?,
       timeOfVisiting: json['timeOfVisiting'] as String?,
       departmentName: json['departmentName'] as String?,
-      userFullName: json['userFullName'] as String?,
-      userPhoneNumber: json['userPhoneNumber'] as String?,
-      userEmail: json['userEmail'] as String?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
     );
 
 Map<String, dynamic> _$CreateTalonRequestToJson(CreateTalonRequest instance) =>
@@ -23,7 +24,8 @@ Map<String, dynamic> _$CreateTalonRequestToJson(CreateTalonRequest instance) =>
       'dateOfVisiting': instance.dateOfVisiting,
       'timeOfVisiting': instance.timeOfVisiting,
       'departmentName': instance.departmentName,
-      'userFullName': instance.userFullName,
-      'userPhoneNumber': instance.userPhoneNumber,
-      'userEmail': instance.userEmail,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'middleName': instance.middleName,
+      'phoneNumber': instance.phoneNumber,
     };

@@ -26,12 +26,12 @@ Map<String, dynamic> _$AuthResponseToJson(AuthResponse instance) =>
     };
 
 AuthRequest _$AuthRequestFromJson(Map<String, dynamic> json) => AuthRequest(
-      email: json['email'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
       password: json['password'] as String?,
     );
 
 Map<String, dynamic> _$AuthRequestToJson(AuthRequest instance) =>
     <String, dynamic>{
       'password': instance.password,
-      'email': instance.email,
+      'phoneNumber': instance.phoneNumber,
     };

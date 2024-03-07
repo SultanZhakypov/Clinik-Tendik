@@ -2,6 +2,7 @@ import 'package:clinic_tendik/feature/home/data/models/create_talon/create_talon
 import 'package:clinic_tendik/feature/home/data/models/doctors_list/doctors_list_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/doctors_time/doctors_time_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/patient_info/patient_info_response.dart';
+import 'package:clinic_tendik/feature/home/data/models/pdf_analyze/pdf_analyze.dart';
 import 'package:clinic_tendik/feature/home/data/models/receive_code/receive_code_response.dart';
 import 'package:clinic_tendik/feature/home/data/models/talon_list_response/talon_list_response.dart';
 import 'package:clinic_tendik/feature/home/data/repository/home_repository.dart';
@@ -16,6 +17,14 @@ class HomeInteractor {
   List<DoctorsListResponse> _doctorsList = [];
   List<DoctorsListResponse> _filteredList = [];
   List<DoctorsListResponse> get filteredList => _filteredList;
+
+  Future<ResultNumberResponse> getResultNumber(String resultNumber) async =>
+      await _repository.getResultNumber(resultNumber);
+  Future<List<ResultDataResponse>?> getResultData() async =>
+      await _repository.getResultData();
+
+  Future<String?> getPDF(String? fileName) async =>
+      await _repository.getPDF(fileName);
 
   Future<List<TalonListResponse>> getTalonList() async =>
       await _repository.getTalonList();
