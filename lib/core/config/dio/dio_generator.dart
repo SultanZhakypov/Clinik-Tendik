@@ -12,7 +12,7 @@ class DioGenerator {
   }
   final _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://18.197.23.153/api/',
+      baseUrl: 'http://18.159.41.120/api/',
       contentType: 'application/json',
       headers: {'Accept': '*/*'},
       connectTimeout: const Duration(seconds: 30),
