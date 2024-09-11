@@ -303,8 +303,20 @@ class _AppointmentTab extends StatelessWidget {
                 },
                 successTalonList: (data) {
                   if (data.isEmpty) {
-                    return Center(
-                      child: Text(LocaleKeys.empty_appointment.tr()),
+                    return Column(
+                      children: [
+                        const Spacer(),
+                        Center(
+                          child: Text(LocaleKeys.empty_appointment.tr()),
+                        ),
+                        const Spacer(),
+                        AppButton(
+                          onPressed: () {
+                            context.router.push(const OnlineDoctorPageRoute());
+                          },
+                          child: Text(LocaleKeys.appointment_button.tr()),
+                        ),
+                      ],
                     );
                   } else {
                     return Column(

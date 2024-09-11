@@ -12,9 +12,8 @@ class DioGenerator {
   }
   final _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://18.159.41.120/api/',
+      baseUrl: 'http://18.197.157.229/api/',
       contentType: 'application/json',
-      headers: {'Accept': '*/*'},
       connectTimeout: const Duration(seconds: 30),
       receiveTimeout: const Duration(seconds: 30),
     ),

@@ -59,6 +59,13 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   @override
+  void reassemble() {
+    LoadingOverlay.removeLoadingOverlay();
+
+    super.reassemble();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
